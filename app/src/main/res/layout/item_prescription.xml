@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_prescription_doctor_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_user"/>
+        <TextView
+            android:id="@+id/tv_prescription_doctor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentStart="true"
+            android:text="刘医生"
+            android:textColor="@color/colorBlack"/>
+        <TextView
+            android:id="@+id/tv_prescription_doctor_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentStart="true"
+            android:text="桂林附属医院 · 呼吸外科" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="75dp"
+            android:layout_alignParentStart="true"
+            android:text="诊断结果：" />
+        <TextView
+            android:id="@+id/tv_prescription_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="75dp"
+            android:layout_alignParentStart="true"
+            android:text="新冠肺炎" />
+
+        <TextView
+            android:id="@+id/tv_prescription_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textSize="25sp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="120dp"
+            android:layout_alignParentStart="true"
+            android:text="详情"
+            android:textColor="@color/colorBlue"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

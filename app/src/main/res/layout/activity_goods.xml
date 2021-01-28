@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:text="商品详情"
             android:textSize="20sp"
+            android:textColor="@color/colorBlack"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="35dp"/>
     </FrameLayout>
@@ -100,7 +101,69 @@
                     android:layout_marginBottom="10dp"/>
             </FrameLayout>
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_card">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="评价"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorBlack"/>
+                <TextView
+                    android:id="@+id/tv_all_evaluate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="查看所有评价"
+                    android:textSize="16sp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="250dp"/>
+                <ImageView
+                    android:id="@+id/iv_evaluate_user_img"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_user"/>
+                <TextView
+                    android:id="@+id/iv_evaluate_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="alan"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginTop="55dp"
+                    android:layout_marginLeft="60dp"/>
+                <TextView
+                    android:id="@+id/iv_evaluate_user_evaluate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="感觉人生已经达到了高潮"
+                    android:textSize="16sp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginBottom="20dp"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:text="------商品详情------"/>
+            <ImageView
+                android:id="@+id/iv_goods_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"/>
         </LinearLayout>
 
     </ScrollView>
@@ -113,23 +176,23 @@
 
         <Button
             android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:text="加入购物车"
             android:textSize="16sp"
             android:textColor="@color/colorPrimaryWhite"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="202dp"
-            android:background="#FF9800"
+            android:background="@drawable/rounded_button_left"
             />
         <Button
-            android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:layout_width="90dp"
+            android:layout_height="30dp"
             android:text="立即购买"
             android:textSize="16sp"
             android:textColor="@color/colorPrimaryWhite"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="300dp"
-            android:background="#DB2A2A"
+            android:background="@drawable/rounded_button_right"
             />
 
     </FrameLayout>
