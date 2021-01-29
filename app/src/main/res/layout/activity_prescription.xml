@@ -14,7 +14,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:background="@color/colorPrimaryWhite">
         <ImageView
-            android:id="@+id/iv_wallet_return"
+            android:id="@+id/iv_prescription_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_keyboard_arrow_left_black_24dp"

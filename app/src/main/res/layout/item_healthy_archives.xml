@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_archives_sick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentStart="true"
+            android:text="脑阔疼（本人）"
+            android:textColor="@color/colorBlack"/>
+        <TextView
+            android:id="@+id/tv_archives_sick_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginRight="70dp"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentEnd="true"
+            android:text="2021-1-28" />
+
+
+        <TextView
+            android:id="@+id/tv_prescription_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:textSize="25sp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="16dp"
+            android:text="详情"
+            android:textColor="@color/colorBlue" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

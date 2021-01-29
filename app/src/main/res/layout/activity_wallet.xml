@@ -28,6 +28,15 @@
             android:textColor="@color/colorBlack"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="35dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账单"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="right"/>
     </FrameLayout>
     <ScrollView
         android:layout_width="match_parent"
@@ -58,10 +67,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginLeft="300dp"
-                    android:text="账单"
+                    android:layout_marginRight="10dp"
+                    android:text="充值"
                     android:textColor="@color/colorPrimaryWhite"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp"
+                    android:layout_gravity="right"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

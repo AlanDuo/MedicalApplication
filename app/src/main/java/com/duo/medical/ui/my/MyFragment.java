@@ -15,6 +15,7 @@ import com.duo.medical.R;
 public class MyFragment extends Fragment {
     ImageView walletImg;
     ImageView prescriptionImg;
+    ImageView archivesImg;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -39,6 +40,14 @@ public class MyFragment extends Fragment {
             }
         });
 
+        archivesImg=view.findViewById(R.id.iv_tools_healthy_archives);
+        archivesImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),HealthyArchivesActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 

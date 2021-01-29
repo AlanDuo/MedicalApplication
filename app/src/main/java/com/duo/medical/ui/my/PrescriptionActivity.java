@@ -2,9 +2,13 @@ package com.duo.medical.ui.my;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.duo.medical.MainActivity;
 import com.duo.medical.R;
 
 import java.util.ArrayList;
@@ -13,6 +17,7 @@ import java.util.List;
 public class PrescriptionActivity extends AppCompatActivity {
     ListView prescriptionListView;
     List<PrescriptionListMode> prescriptionList;
+    ImageView prescriptionReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +26,14 @@ public class PrescriptionActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-
+        prescriptionReturn=findViewById(R.id.iv_prescription_return);
+        prescriptionReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(PrescriptionActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         prescriptionListView=findViewById(R.id.lv_my_prescription);
         prescriptionListInit();

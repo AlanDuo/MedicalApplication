@@ -98,10 +98,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="10dp"
-            android:background="@drawable/rounded_card_hightlight">
+            android:layout_gravity="right"
+            android:background="@drawable/rounded_card_hightlight"
+            >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

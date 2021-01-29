@@ -27,8 +27,9 @@
             android:id="@+id/iv_news_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_marginLeft="230dp"
+            android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
+            android:layout_alignParentEnd="true"
             android:scaleType="centerCrop" />
         <TextView
             android:id="@+id/tv_news_shareTime"
@@ -36,8 +37,7 @@
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="120dp"
-            android:layout_alignParentStart="true"/>
+            android:layout_marginTop="120dp" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
