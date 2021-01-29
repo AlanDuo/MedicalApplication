@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -39,6 +40,15 @@ public class PrescriptionActivity extends AppCompatActivity {
         prescriptionListInit();
         PrescriptionListAdapter prescriptionListAdapter=new PrescriptionListAdapter(PrescriptionActivity.this,R.layout.item_prescription,prescriptionList);
         prescriptionListView.setAdapter(prescriptionListAdapter);
+
+        prescriptionListView.setOnItemClickListener(new ListView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(PrescriptionActivity.this,PrescriptionDetailActivity.class);
+
+                startActivity(intent);
+            }
+        });
 
     }
     public void prescriptionListInit(){

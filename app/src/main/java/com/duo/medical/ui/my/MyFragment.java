@@ -16,6 +16,7 @@ public class MyFragment extends Fragment {
     ImageView walletImg;
     ImageView prescriptionImg;
     ImageView archivesImg;
+    ImageView feedbackImg;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -48,6 +49,17 @@ public class MyFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        feedbackImg=view.findViewById(R.id.iv_tools_feedback);
+        feedbackImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),FeedBackActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         return view;
     }
 
