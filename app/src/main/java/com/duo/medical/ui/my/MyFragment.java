@@ -17,6 +17,10 @@ public class MyFragment extends Fragment {
     ImageView prescriptionImg;
     ImageView archivesImg;
     ImageView feedbackImg;
+    ImageView waitToPayImg;
+    ImageView waitToReceiveImg;
+    ImageView shopCartImg;
+    ImageView orderImg;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -59,7 +63,42 @@ public class MyFragment extends Fragment {
             }
         });
 
+        waitToPayImg=view.findViewById(R.id.iv_wait_to_pay);
+        waitToPayImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),WaitToPayActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        waitToReceiveImg=view.findViewById(R.id.iv_wait_to_receive);
+        waitToReceiveImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),WaitToReceiveActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        shopCartImg=view.findViewById(R.id.iv_shop_cart);
+        shopCartImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),ShopCartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        orderImg=view.findViewById(R.id.iv_my_order);
+        orderImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),OrderActivity.class);
+
+                startActivity(intent);
+            }
+        });
         return view;
     }
 

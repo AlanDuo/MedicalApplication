@@ -15,7 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.my.PrescriptionDetailActivity"></activity>
+        <activity android:name=".ui.my.OrderActivity"></activity>
+        <activity android:name=".ui.my.NewHealthyArchivesActivity" />
+        <activity android:name=".ui.my.ShopCartActivity" />
+        <activity android:name=".ui.my.WaitToReceiveActivity" />
+        <activity android:name=".ui.my.WaitToPayActivity" />
+        <activity android:name=".ui.my.PrescriptionDetailActivity" />
         <activity android:name=".ui.my.NewFeedbackActivity" />
         <activity android:name=".ui.my.FeedBackActivity" />
         <activity android:name=".ui.my.HealthyArchivesActivity" />
