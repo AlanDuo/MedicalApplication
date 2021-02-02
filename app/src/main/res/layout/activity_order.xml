@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:text="商城订单"
             android:textSize="16sp"
-            android:textColor="@color/colorBlue"
+            android:textColor="@color/colorTextGray"
             android:layout_marginTop="15dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginRight="45dp" />
@@ -45,6 +45,7 @@
             android:layout_height="wrap_content"
             android:text="咨询订单"
             android:textSize="16sp"
+            android:textColor="@color/colorTextGray"
             android:layout_marginTop="15dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginLeft="45dp"/>

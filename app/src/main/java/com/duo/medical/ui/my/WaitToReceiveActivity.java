@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WaitToReceiveActivity extends AppCompatActivity {
-    List<WaitToListMode> waitToReceiveList;
+    List<ShopOrderListMode> waitToReceiveList;
     ListView waitToReceiveListView;
     ImageView waitToReceiveReturn;
 
@@ -42,8 +42,8 @@ public class WaitToReceiveActivity extends AppCompatActivity {
     }
     public void waitToReceiveListInit(){
         waitToReceiveList=new ArrayList<>();
-        waitToReceiveList.add(new WaitToListMode(1,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327523080,341660430&fm=26&gp=0.jpg","保为康口罩","¥ 20"));
-        waitToReceiveList.add(new WaitToListMode(2,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327523080,341660430&fm=26&gp=0.jpg","保为康口罩","¥ 20"));
+        waitToReceiveList.add(new ShopOrderListMode(1,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327523080,341660430&fm=26&gp=0.jpg","保为康口罩","¥ 20"));
+        waitToReceiveList.add(new ShopOrderListMode(2,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327523080,341660430&fm=26&gp=0.jpg","保为康口罩","¥ 20"));
 
     }
 }

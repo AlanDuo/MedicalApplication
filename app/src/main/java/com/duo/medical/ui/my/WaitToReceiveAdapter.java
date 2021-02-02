@@ -13,12 +13,12 @@ import com.duo.medical.R;
 
 import java.util.List;
 
-public class WaitToReceiveAdapter extends ArrayAdapter<WaitToListMode> {
-    private List<WaitToListMode> mData;
+public class WaitToReceiveAdapter extends ArrayAdapter<ShopOrderListMode> {
+    private List<ShopOrderListMode> mData;
     private Context mContext;
     private int resourceId;
 
-    public WaitToReceiveAdapter(Context context, int resourceId, List<WaitToListMode> data){
+    public WaitToReceiveAdapter(Context context, int resourceId, List<ShopOrderListMode> data){
         super(context,resourceId,data);
         this.mContext=context;
         this.mData=data;
@@ -27,7 +27,7 @@ public class WaitToReceiveAdapter extends ArrayAdapter<WaitToListMode> {
 
     @Override
     public View getView(int position , View convertView , ViewGroup parent){
-        WaitToListMode waitToReceiveMode=getItem(position);
+        ShopOrderListMode waitToReceiveMode=getItem(position);
         View view;
         view= LayoutInflater.from(getContext()).inflate(resourceId,parent,false);
         ImageView orderImg = view.findViewById(R.id.iv_wait_to_receive_img);

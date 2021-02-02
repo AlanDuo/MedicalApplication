@@ -1,12 +1,12 @@
 package com.duo.medical.ui.my;
 
-public class WaitToListMode {
+public class ShopOrderListMode {
     private int orderId;
     private String orderImg;
     private String orderDesc;
     private String orderPrice;
 
-    public WaitToListMode(int orderId, String orderImg, String orderDesc, String orderPrice) {
+    public ShopOrderListMode(int orderId, String orderImg, String orderDesc, String orderPrice) {
         this.orderId = orderId;
         this.orderImg = orderImg;
         this.orderDesc = orderDesc;
