@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -29,6 +30,14 @@ public class WaitToReceiveActivity extends AppCompatActivity {
         waitToReceiveListInit();
         WaitToReceiveAdapter receiveAdapter=new WaitToReceiveAdapter(WaitToReceiveActivity.this,R.layout.item_wait_to_receive,waitToReceiveList);
         waitToReceiveListView.setAdapter(receiveAdapter);
+        waitToReceiveListView.setOnItemClickListener(new ListView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(WaitToReceiveActivity.this,WaitToReceiveDetailActivity.class);
+
+                startActivity(intent);
+            }
+        });
 
         waitToReceiveReturn=findViewById(R.id.iv_wait_to_receive_return);
         waitToReceiveReturn.setOnClickListener(new View.OnClickListener() {
