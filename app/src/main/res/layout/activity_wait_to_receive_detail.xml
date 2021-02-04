@@ -293,6 +293,7 @@
             android:layout_marginTop="20dp"
             android:text="确认收货"
             android:textSize="14sp"
+            android:textColor="@color/colorRed"
             android:background="@drawable/rounded_button_red_stroke"/>
 
     </FrameLayout>

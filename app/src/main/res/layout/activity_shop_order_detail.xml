@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.my.WaitToPayDetailActivity"
+    tools:context=".ui.my.ShopOrderDetailActivity"
     android:background="@color/colorBackground">
 
     <FrameLayout
@@ -14,7 +14,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:background="@color/colorPrimaryWhite">
         <ImageView
-            android:id="@+id/iv_wait_to_pay_detail_return"
+            android:id="@+id/iv_shop_order_detail_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_keyboard_arrow_left_black_24dp"
@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="等待付款"
+            android:text="订单详情"
             android:textSize="20sp"
             android:textColor="@color/colorBlack"
             android:layout_marginTop="10dp"
@@ -44,43 +44,43 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/ic_location"/>
+            android:src="@drawable/ic_right"/>
         <TextView
-            android:id="@+id/tv_wait_to_pay_receiver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:textSize="16sp"
             android:textColor="@color/colorBlack"
-            android:text="罗惠铎"/>
+            android:text="交易成功啦"/>
         <TextView
-            android:id="@+id/tv_wait_to_pay_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="190dp"
-            android:textSize="16sp"
-            android:text="18178589543"/>
-        <TextView
-            android:id="@+id/tv_wait_to_pay_location"
-            android:layout_width="180dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
             android:layout_marginLeft="100dp"
-            android:textSize="16sp"
-            android:text="桂林电子科技大学花江校区"/>
-        <TextView
-            android:id="@+id/tv_wait_to_pay_location_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="70dp"
+            android:textSize="14sp"
+            android:text="快去评价分享给好友吧"/>
+        <Button
+            android:id="@+id/bt_shop_order_detail_evaluate"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
             android:layout_gravity="right"
             android:layout_marginRight="10dp"
-            android:textSize="20sp"
-            android:textColor="@color/colorBlue"
-            android:text="修改"/>
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_button_red_stroke"
+            android:text="评价"
+            android:textColor="@color/colorRed"/>
+
+        <Button
+            android:id="@+id/bt_shop_order_detail_after_sales"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/rounded_button_red_stroke"
+            android:text="售后"
+            android:textColor="@color/colorRed"/>
     </FrameLayout>
 
     <ScrollView
@@ -100,14 +100,14 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimaryWhite">
                 <ImageView
-                    android:id="@+id/iv_wait_to_pay_detail_img"
+                    android:id="@+id/iv_shop_order_detail_img"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp"/>
 
                 <TextView
-                    android:id="@+id/tv_wait_to_pay_detail_shop_img"
+                    android:id="@+id/tv_shop_order_detail_shop_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
@@ -116,7 +116,7 @@
                     android:textColor="@color/colorBlack"
                     android:text="保为康口罩"/>
                 <TextView
-                    android:id="@+id/tv_wait_to_pay_detail_price"
+                    android:id="@+id/tv_shop_order_detail_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
@@ -127,7 +127,7 @@
                     android:text="¥ 20"/>
 
                 <TextView
-                    android:id="@+id/tv_wait_to_pay_detail_shop_type"
+                    android:id="@+id/tv_shop_order_detail_shop_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="60dp"
@@ -136,7 +136,7 @@
                     android:text="加厚版"/>
 
                 <TextView
-                    android:id="@+id/tv_wait_to_pay_detail_amount"
+                    android:id="@+id/tv_shop_order_detail_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="60dp"
@@ -152,7 +152,7 @@
                     android:text="商品总价"
                     android:textSize="16sp"/>
                 <TextView
-                    android:id="@+id/tv_wait_to_pay_detail_total_price"
+                    android:id="@+id/tv_shop_order_detail_total_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="150dp"
@@ -168,7 +168,7 @@
                     android:text="运费"
                     android:textSize="16sp"/>
                 <TextView
-                    android:id="@+id/tv_wait_to_pay_detail_logistics_price"
+                    android:id="@+id/tv_shop_order_detail_logistics_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="180dp"
@@ -186,7 +186,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/colorBlack"/>
                 <TextView
-                    android:id="@+id/tv_wait_to_pay_detail_real_pay"
+                    android:id="@+id/tv_shop_order_detail_real_pay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="210dp"
@@ -200,7 +200,7 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:background="@color/colorPrimaryWhite">
 
                 <TextView
@@ -211,7 +211,7 @@
                     android:text="订单编号"
                     android:textSize="16sp"/>
                 <TextView
-                    android:id="@+id/tv_wait_to_pay_order_number"
+                    android:id="@+id/tv_shop_order_detail_order_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -219,19 +219,35 @@
                     android:layout_marginRight="20dp"
                     android:text="123456789"
                     android:textSize="16sp"/>
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:layout_marginLeft="20dp"
-                    android:text="创建时间"
+                    android:text="物流单号"
                     android:textSize="16sp"/>
                 <TextView
-                    android:id="@+id/tv_wait_to_pay_order_time"
+                    android:id="@+id/tv_shop_order_detail_logistics_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="20dp"
+                    android:text="123456789"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="创建时间"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/tv_shop_order_detail_order_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="80dp"
                     android:layout_marginBottom="20dp"
                     android:layout_gravity="right"
                     android:layout_marginRight="20dp"
@@ -241,34 +257,4 @@
         </LinearLayout>
     </ScrollView>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/colorPrimaryWhite">
-
-        <Button
-            android:id="@+id/bt_wait_to_pay_detail_toPay"
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            android:layout_gravity="right"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:text="付 款"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryWhite"
-            android:background="@drawable/rounded_button_right"/>
-        <Button
-            android:id="@+id/bt_wait_to_pay_detail_cancel_Pay"
-            android:layout_width="60dp"
-            android:layout_height="30dp"
-            android:layout_gravity="right"
-            android:layout_marginRight="80dp"
-            android:layout_marginTop="20dp"
-            android:text="取 消"
-            android:textSize="16sp"
-            android:textColor="@color/colorPrimaryWhite"
-            android:background="@drawable/rounded_button_left"/>
-
-    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
