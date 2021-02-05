@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.my.ShopCartActivity">
+    tools:context=".ui.my.ShopCartActivity"
+    android:background="@color/colorBackground">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -45,5 +46,59 @@
             android:layout_marginTop="49dp"/>
     </FrameLayout>
 
+    <ListView
+        android:id="@+id/lv_shop_cart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="60dp"/>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorPrimaryWhite">
+
+        <ImageView
+            android:id="@+id/iv_select_all"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_circle"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="60dp"
+            android:text="全选"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="190dp"
+            android:text="合计："
+            android:textSize="16sp"
+            android:textColor="@color/colorBlack"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="120dp"
+            android:text="¥ 200.00"
+            android:textSize="16sp"/>
+        <Button
+            android:id="@+id/bt_pay_now"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="立即付款"
+            android:textColor="@color/colorRed"
+            android:background="@drawable/rounded_button_red_stroke"/>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
