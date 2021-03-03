@@ -54,6 +54,18 @@
             android:layout_marginTop="70dp"
             android:textSize="14sp" />
         <Button
+            android:id="@+id/bt_list_doctor_intro"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="5dp"
+            android:text="简介"
+            android:textSize="16sp"
+            android:textColor="@color/colorPrimaryWhite"
+            android:background="@drawable/rounded_button"/>
+        <Button
             android:id="@+id/bt_list_doctor_ask"
             android:layout_width="70dp"
             android:layout_height="30dp"
