@@ -7,14 +7,16 @@ public class ShopCartMode {
     private String shopType;
     private String shopPrice;
     private int shopAmount;
+    private int select;
 
-    public ShopCartMode(int shopCartId, String shopImg, String shopDesc, String shopType, String shopPrice, int shopAmount) {
+    public ShopCartMode(int shopCartId, String shopImg, String shopDesc, String shopType, String shopPrice, int shopAmount,int select) {
         this.shopCartId = shopCartId;
         this.shopImg = shopImg;
         this.shopDesc = shopDesc;
         this.shopType = shopType;
         this.shopPrice = shopPrice;
         this.shopAmount = shopAmount;
+        this.select=select;
     }
 
     public int getShopCartId() {
@@ -63,5 +65,11 @@ public class ShopCartMode {
 
     public void setShopAmount(int shopAmount) {
         this.shopAmount = shopAmount;
+    }
+    public int getSelect(){
+        return select;
+    }
+    public void setSelect(int select){
+        this.select=select;
     }
 }

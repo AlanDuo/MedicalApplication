@@ -18,21 +18,23 @@ import com.duo.medical.common.GlideRoundTransform;
 
 import java.util.List;
 
-public class ShopCartAdapter extends ArrayAdapter<ShopCartMode> implements View.OnClickListener {
+public class ShopCartAdapter extends ArrayAdapter<ShopCartMode> {
     private List<ShopCartMode> mData;
     private Context mContext;
     private int resourceId;
     private ViewHolder viewHolder;
+    private ItemOnclickInterface itemOnclickInterface;
 
-    public ShopCartAdapter(Context context,int resourceId,List<ShopCartMode> data){
+    public ShopCartAdapter(Context context,int resourceId,List<ShopCartMode> data,ItemOnclickInterface itemOnclickInterface){
         super(context,resourceId,data);
         this.mContext=context;
         this.mData=data;
         this.resourceId=resourceId;
+        this.itemOnclickInterface=itemOnclickInterface;
     }
 
     @Override
-    public View getView(int position , View convertView , ViewGroup parent){
+    public View getView(final int position , View convertView , ViewGroup parent){
         ShopCartMode shopCartMode=getItem(position);
         View view;
         if(null==convertView){
@@ -65,26 +67,33 @@ public class ShopCartAdapter extends ArrayAdapter<ShopCartMode> implements View.
         viewHolder.shopType.setText(shopCartMode.getShopType());
         viewHolder.shopPrice.setText("¥ "+shopCartMode.getShopPrice());
         viewHolder.shopAmount.setText(shopCartMode.getShopAmount()+"");
-        viewHolder.chooseIt.setOnClickListener(this);
-        viewHolder.decrease.setOnClickListener(this);
-        viewHolder.add.setOnClickListener(this);
+        if(shopCartMode.getSelect()>0){
+            viewHolder.chooseIt.setImageResource(R.drawable.ic_circle_right);
+        }else{
+            viewHolder.chooseIt.setImageResource(R.drawable.ic_circle);
+        }
+        viewHolder.chooseIt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemOnclickInterface.changeImg(position);
+            }
+        });
+        viewHolder.decrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemOnclickInterface.decrease(position);
+            }
+        });
+        viewHolder.add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               itemOnclickInterface.add(position);
+            }
+        });
 
-        viewHolder.chooseIt.setTag(position);
-        viewHolder.decrease.setTag(position);
-        viewHolder.add.setTag(position);
         return view;
     }
-    @Override
-    public void onClick(View v){
-        int vId=v.getId();
-        if(vId==viewHolder.chooseIt.getId()){
-            viewHolder.chooseIt.setImageResource(R.drawable.ic_circle_right);
-        }else if(vId==viewHolder.decrease.getId()){
-            viewHolder.shopAmount.setText((Integer.parseInt(viewHolder.shopAmount.getText()+"")-1)+"");
-        }else if(vId==viewHolder.add.getId()){
-            viewHolder.shopAmount.setText((Integer.parseInt(viewHolder.shopAmount.getText()+"")+1)+"");
-        }
-    }
+
     class ViewHolder{
         ImageView chooseIt;
         ImageView shopImg;
@@ -94,5 +103,10 @@ public class ShopCartAdapter extends ArrayAdapter<ShopCartMode> implements View.
         TextView shopAmount;
         Button decrease;
         Button add;
+    }
+    public interface ItemOnclickInterface{
+        public void add(int position);
+        public void decrease(int position);
+        public void changeImg(int position);
     }
 }

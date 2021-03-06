@@ -80,7 +80,7 @@ public class DoctorListAdapter extends ArrayAdapter<DoctorListMode> {
                 mContext.startActivity(intent);
             }
             if(vId==viewHolder.btDoctorAsk.getId()){
-                Toast.makeText(mContext,"咨询按钮",Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,"咨询按钮"+position,Toast.LENGTH_SHORT).show();
             }
         }
     }
