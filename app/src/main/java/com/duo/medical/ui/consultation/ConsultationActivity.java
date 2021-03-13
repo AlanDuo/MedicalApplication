@@ -1,12 +1,30 @@
 package com.duo.medical.ui.consultation;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.duo.medical.R;
 
+import java.util.ArrayList;
+
 public class ConsultationActivity extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    private ChatAdapter adapter;
+    private EditText et;
+    private TextView tvSend;
+    private String content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,6 +33,82 @@ public class ConsultationActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        recyclerView=findViewById(R.id.rv_chat);
+        et=findViewById(R.id.et);
+        tvSend=findViewById(R.id.tvSend);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        recyclerView.setAdapter(adapter=new ChatAdapter());
+        adapter.replaceAll(TestData.getTestAdData());
+        initData();
+    }
+    private void initData() {
+        et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                content = s.toString().trim();
+            }
+        });
+
+        tvSend.setOnClickListener(new View.OnClickListener() {
+            @TargetApi(Build.VERSION_CODES.M)
+            @Override
+            public void onClick(View v) {
+                ArrayList<ChatItemModel> data = new ArrayList<>();
+                ChatModel model = new ChatModel();
+                model.setIcon("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F13%2F20200713091444_ljjlq.thumb.400_0.webp&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618239776&t=778fdfbdc3a6cf6dc855b0591c29bc8d");
+                model.setContent(content);
+                data.add(new ChatItemModel(ChatItemModel.CHAT_B, model));
+                adapter.addAll(data);
+                et.setText("");
+                hideKeyBorad(et);
+            }
+        });
+    }
+    private void hideKeyBorad(View v) {
+        InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm.isActive()) {
+            imm.hideSoftInputFromWindow(v.getApplicationWindowToken(), 0);
+        }
+    }
+}
+class TestData{
+    public static ArrayList<ChatItemModel> getTestAdData() {
+        ArrayList<ChatItemModel> models = new ArrayList<>();
+        ChatModel model = new ChatModel();
+        model.setContent("你好？我们交个朋友吧！");
+        model.setIcon("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F13%2F20200713091444_ljjlq.thumb.400_0.webp&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618239776&t=778fdfbdc3a6cf6dc855b0591c29bc8d");
+        models.add(new ChatItemModel(ChatItemModel.CHAT_A, model));
+        ChatModel model2 = new ChatModel();
+        model2.setContent("我是隔壁小王，你是谁？");
+        model2.setIcon("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F13%2F20200713091444_ljjlq.thumb.400_0.webp&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618239776&t=778fdfbdc3a6cf6dc855b0591c29bc8d");
+        models.add(new ChatItemModel(ChatItemModel.CHAT_B, model2));
+        ChatModel model3 = new ChatModel();
+        model3.setContent("what？你真不知道我是谁吗？哭~");
+        model3.setIcon("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F13%2F20200713091444_ljjlq.thumb.400_0.webp&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618239776&t=778fdfbdc3a6cf6dc855b0591c29bc8d");
+        models.add(new ChatItemModel(ChatItemModel.CHAT_A, model3));
+        ChatModel model4 = new ChatModel();
+        model4.setContent("大哥，别哭，我真不知道");
+        model4.setIcon("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F13%2F20200713091444_ljjlq.thumb.400_0.webp&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618239776&t=778fdfbdc3a6cf6dc855b0591c29bc8d");
+        models.add(new ChatItemModel(ChatItemModel.CHAT_B, model4));
+        ChatModel model5 = new ChatModel();
+        model5.setContent("卧槽，你不知道你来撩妹？");
+        model5.setIcon("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F13%2F20200713091444_ljjlq.thumb.400_0.webp&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618239776&t=778fdfbdc3a6cf6dc855b0591c29bc8d");
+        models.add(new ChatItemModel(ChatItemModel.CHAT_A, model5));
+        ChatModel model6 = new ChatModel();
+        model6.setContent("你是妹子，卧槽，我怎么没看出来？");
+        model6.setIcon("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F13%2F20200713091444_ljjlq.thumb.400_0.webp&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618239776&t=778fdfbdc3a6cf6dc855b0591c29bc8d");
+        models.add(new ChatItemModel(ChatItemModel.CHAT_B, model6));
+        return models;
     }
 }

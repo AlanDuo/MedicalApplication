@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.consultation.DoctorIntroActivity"></activity>
+        <activity android:name=".ui.consultation.DoctorIntroActivity" />
         <activity android:name=".ui.consultation.ConsultationActivity" />
         <activity android:name=".ui.my.ShopEvaluateActivity" />
         <activity android:name=".ui.my.ShopOrderDetailActivity" />
