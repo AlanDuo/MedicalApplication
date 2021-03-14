@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,8 +14,10 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.duo.medical.MainActivity;
 import com.duo.medical.R;
 
 import java.util.ArrayList;
@@ -25,6 +28,7 @@ public class ConsultationActivity extends AppCompatActivity {
     private EditText et;
     private TextView tvSend;
     private String content;
+    private ImageView chatReturn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,15 @@ public class ConsultationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_consultation);
 
         getSupportActionBar().hide();
+
+        chatReturn=findViewById(R.id.iv_chat_return);
+        chatReturn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent=new Intent(ConsultationActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         recyclerView=findViewById(R.id.rv_chat);
         et=findViewById(R.id.et);

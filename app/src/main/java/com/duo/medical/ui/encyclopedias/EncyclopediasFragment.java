@@ -1,9 +1,11 @@
 package com.duo.medical.ui.encyclopedias;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -37,7 +39,13 @@ public class EncyclopediasFragment extends Fragment {
         encyclopediasListInit();
         EncyclopediasListAdapter encyclopediasListAdapter=new EncyclopediasListAdapter(getContext(),R.layout.item_index_encyclopedias,encyclopediasList);
         listView.setAdapter(encyclopediasListAdapter);
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent=new Intent(getActivity(),EncyclopediasDetailsActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 
