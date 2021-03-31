@@ -21,7 +21,7 @@ public class EncyclopediasDetailsActivity extends AppCompatActivity {
 
         webView=findViewById(R.id.wv_news_details);
         WebSettings webSettings=webView.getSettings();
-        webSettings.setDisplayZoomControls(false);
+        webSettings.setDisplayZoomControls(true);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setUseWideViewPort(true);
         webSettings.setLoadWithOverviewMode(true);
