@@ -16,7 +16,7 @@ import okhttp3.Response;
  * 请求的封装
  */
 public class NetClient {
-    private static final String PATH="http://10.254.5.135:9201/";
+    private static final String PATH="http://192.168.43.50:9201/";
     private static NetClient netClient;
     public final OkHttpClient client;
     private NetClient(){
@@ -37,17 +37,28 @@ public class NetClient {
         return netClient;
     }
     public void callNet(String url,String type, String json, final MyCallBack mCallback){
-        Request request;
+        Request request=null;
         url=PATH+url;
         if(type.equals("GET")){
             request = new Request.Builder().url(url).build();
-        }else{
+        }else if(type.equals("POST")){
             //设置数据类型为JSON类型
             MediaType JSON = MediaType.parse("application/json;charset=utf-8");
 
             RequestBody body = RequestBody.create(JSON,json);
             request=new Request.Builder().url(url).post(body).build();
+        }else if(type.equals("PUT")){
+            //设置数据类型为JSON类型
+            MediaType JSON = MediaType.parse("application/json;charset=utf-8");
+            RequestBody body = RequestBody.create(JSON,json);
+            request=new Request.Builder().url(url).put(body).build();
+        }else if (type.equals("DELETE")){
+            //设置数据类型为JSON类型
+            MediaType JSON = MediaType.parse("application/json;charset=utf-8");
+            RequestBody body = RequestBody.create(JSON,json);
+            request=new Request.Builder().url(url).delete(body).build();
         }
+
         Call call = getNetClient().initOkHttpClient().newCall(request);
         call.enqueue(new Callback() {
             @Override

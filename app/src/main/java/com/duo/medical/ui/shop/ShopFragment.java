@@ -1,7 +1,9 @@
 package com.duo.medical.ui.shop;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,6 +42,31 @@ public class ShopFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<ShopMode> shopList;
 
+    //Handler运行在主线程中(UI线程中)，  它与子线程可以通过Message对象来传递数据
+    @SuppressLint("HandlerLeak")
+    public Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1:
+                    StaggeredGridLayoutManager staggeredGridLayoutManager=
+                            new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+                    recyclerView.setLayoutManager(staggeredGridLayoutManager);
+                    IndexShopAdapter indexShopAdapter=new IndexShopAdapter(ShopFragment.this,shopList);
+                    indexShopAdapter.setOnItemClickListener(new IndexShopAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(RecyclerView parent, View view, int position, ShopMode data) {
+                            Intent intent=new Intent(getActivity(),GoodsActivity.class);
+                            intent.putExtra("id",data.getId()+"");
+                            startActivity(intent);
+                        }
+                    });
+                    recyclerView.setAdapter(indexShopAdapter);
+                    break;
+            }
+        }
+    };
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -55,16 +82,7 @@ public class ShopFragment extends Fragment {
         StaggeredGridLayoutManager staggeredGridLayoutManager=
                 new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
-        IndexShopAdapter indexShopAdapter=new IndexShopAdapter(ShopFragment.this,shopList);
-        indexShopAdapter.setOnItemClickListener(new IndexShopAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(RecyclerView parent, View view, int position, ShopMode data) {
-                Intent intent=new Intent(getActivity(),GoodsActivity.class);
 
-                startActivity(intent);
-            }
-        });
-        recyclerView.setAdapter(indexShopAdapter);
 
         return view;
     }
@@ -89,19 +107,28 @@ public class ShopFragment extends Fragment {
             @Override
             public void onResponse(String json){
                 System.out.println(json);
+                try {
+                    JSONObject jsonObject = new JSONObject(json);
+                    String data=jsonObject.getString("data");
+                    JSONArray jsonArray=new JSONArray(data);
+                    int len=jsonArray.length();
+                    shopList=new ArrayList<>();
+                    for(int i=0;i<len;i++){
+                        JSONObject jsonObject1=jsonArray.getJSONObject(i);
+                        int id=Integer.parseInt(jsonObject1.optString("goodsId"));
+                        String img_url=jsonObject1.optString("goodsImg");
+                        String desc=jsonObject1.optString("goodsName");
+                        String price="￥"+jsonObject1.optString("wholesalePrice");
+                        shopList.add(new ShopMode(id,img_url,desc,price));
+
+                        Message message = new Message();
+                        message.what = 1;
+                        handler.sendMessage(message);
+                    }
+                }catch (Exception e){
+                    Log.e("json转换异常",e.getMessage());
+                }
             }
         });
-
-
-
-        shopList=new ArrayList<>();
-        shopList.add(new ShopMode(1,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327523080,341660430&fm=26&gp=0.jpg","保为康口罩","¥ 20"));
-        shopList.add(new ShopMode(2,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=550654640,1160439187&fm=26&gp=0.jpg","感冒解毒颗粒","¥ 20"));
-        shopList.add(new ShopMode(3,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2839931069,3564949802&fm=26&gp=0.jpg","小儿感冒颗粒","¥ 20"));
-        shopList.add(new ShopMode(4,"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2652448203,3232878993&fm=26&gp=0.jpg","云南白药","¥ 20"));
-        shopList.add(new ShopMode(5,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327523080,341660430&fm=26&gp=0.jpg","保为康口罩","¥ 20"));
-        shopList.add(new ShopMode(6,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=550654640,1160439187&fm=26&gp=0.jpg","感冒解毒颗粒","¥ 20"));
-        shopList.add(new ShopMode(7,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2839931069,3564949802&fm=26&gp=0.jpg","小儿感冒颗粒","¥ 20"));
-        shopList.add(new ShopMode(8,"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2652448203,3232878993&fm=26&gp=0.jpg","云南白药","¥ 20"));
     }
 }
