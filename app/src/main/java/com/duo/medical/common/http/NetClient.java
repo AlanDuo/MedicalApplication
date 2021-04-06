@@ -2,11 +2,12 @@ package com.duo.medical.common.http;
 
 import android.util.Log;
 
+import com.duo.medical.LoginActivity;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -36,27 +37,21 @@ public class NetClient {
         }
         return netClient;
     }
-    public void callNet(String url,String type, String json, final MyCallBack mCallback){
+    public void callNet(String url, String type, RequestBody body, final MyCallBack mCallback){
         Request request=null;
         url=PATH+url;
         if(type.equals("GET")){
-            request = new Request.Builder().url(url).build();
+            if(LoginActivity.token!=null) {
+                request = new Request.Builder().url(url).addHeader("Authorization","Bearer "+ LoginActivity.token).build();
+            }else{
+                request = new Request.Builder().url(url).build();
+            }
         }else if(type.equals("POST")){
-            //设置数据类型为JSON类型
-            MediaType JSON = MediaType.parse("application/json;charset=utf-8");
-
-            RequestBody body = RequestBody.create(JSON,json);
-            request=new Request.Builder().url(url).post(body).build();
+            request=new Request.Builder().url(url).addHeader("Authorization","Bearer "+ LoginActivity.token).post(body).build();
         }else if(type.equals("PUT")){
-            //设置数据类型为JSON类型
-            MediaType JSON = MediaType.parse("application/json;charset=utf-8");
-            RequestBody body = RequestBody.create(JSON,json);
-            request=new Request.Builder().url(url).put(body).build();
+            request=new Request.Builder().url(url).addHeader("Authorization","Bearer "+ LoginActivity.token).put(body).build();
         }else if (type.equals("DELETE")){
-            //设置数据类型为JSON类型
-            MediaType JSON = MediaType.parse("application/json;charset=utf-8");
-            RequestBody body = RequestBody.create(JSON,json);
-            request=new Request.Builder().url(url).delete(body).build();
+            request=new Request.Builder().url(url).addHeader("Authorization","Bearer "+ LoginActivity.token).delete(body).build();
         }
 
         Call call = getNetClient().initOkHttpClient().newCall(request);

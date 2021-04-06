@@ -21,10 +21,14 @@ public class EncyclopediasDetailsActivity extends AppCompatActivity {
 
         webView=findViewById(R.id.wv_news_details);
         WebSettings webSettings=webView.getSettings();
-        webSettings.setDisplayZoomControls(true);
+
+        webSettings.setTextZoom(300);
+        webSettings.setSupportZoom(true);
+        webSettings.setBuiltInZoomControls(true);
         webSettings.setJavaScriptEnabled(true);
         webSettings.setUseWideViewPort(true);
         webSettings.setLoadWithOverviewMode(true);
+
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -33,181 +37,149 @@ public class EncyclopediasDetailsActivity extends AppCompatActivity {
             }
         });
         webView.loadDataWithBaseURL(null,HtmlFormat.getNewContent(initData()),"text/html","UTF-8",null);
+        webSettings.setDisplayZoomControls(true);
     }
     public String initData(){
-        String htmlCode="<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n" +
-                "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" +
-                "<head>\n" +
-                "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n" +
-                "<title>特色美食</title>\n" +
-                "<style type=\"text/css\">\n" +
-                "*{margin:0;padding:0;}\n" +
-                ".top{height:40px;background:#39F}\n" +
-                "ul{list-style:none;}\n" +
-                "li{float:left;}\n" +
-                "#menu{text-decoration:none;display:block;height:40px;line-height:30px;width:110px;background-color:#39F;margin-bottom:1px;text-align:center;}\n" +
-                "#menu:hover{background-color:#FF9;color:#000}\n" +
-                ".main{\n" +
-                "\twidth:100%;\n" +
-                "\theight:2500px;\n" +
-                "\tbackground-image:url(../photo/background.jpg);\n" +
-                "\tbackground-repeat:no-repeat;\n" +
-                "\tbackground-size:cover;\n" +
-                "\tbackground-attachment:fixed\n" +
-                "\t}\n" +
-                ".demo,.img,.mask,.border{\n" +
-                "\twidth:350px;\n" +
-                "\theight:350px;\n" +
-                "\tborder-radius:50%;\n" +
-                "\t}\n" +
-                ".demo{\n" +
-                "\tposition:relative;\n" +
-                "\tdisplay:block;\n" +
-                "\t}\n" +
-                ".img{\n" +
-                "\tbackground-size:cover;\n" +
-                "\tbackground-position:50% 50%;\n" +
-                "\t}\n" +
-                ".mask,.border{\n" +
-                "\tposition:absolute;\n" +
-                "\tleft: 0;\n" +
-                "\ttop: 0;\n" +
-                "\t}\n" +
-                ".mask{\n" +
-                "\ttext-align:center;\n" +
-                "\tcolor:rgba(255,255,255,0);\n" +
-                "\ttransition:all .5s ease-in;\n" +
-                "\t}\n" +
-                ".info{\n" +
-                "\tmargin-top:50%;\n" +
-                "\ttransfrom:translateY(-50%);\n" +
-                "    }\n" +
-                ".border{\n" +
-                "\tborder:10px solid #309;\n" +
-                "\tborder-left-color:#FF0;\n" +
-                "\tborder-top-color:#FF0;\n" +
-                "\tbox-sizing:border-box;\n" +
-                "\ttransition:all .5s ease-in;\n" +
-                "\t}\n" +
-                ".demo:hover .mask{\n" +
-                "\tbackground-color: rgba(0,0,0,.5);\n" +
-                "\tcolor:rgba(255,255,255,1);\n" +
-                "\t}\n" +
-                ".demo:hover .border{\n" +
-                "\ttransform:rotate(180deg);\n" +
-                "\t\n" +
-                "\t}\n" +
-                "</style>\n" +
-                "</head>\n" +
-                "<body>\n" +
-                "<div>\n" +
-                "<div class=\"top\">\n" +
-                "<ul>\n" +
-                "<li><a id=\"menu\" href=\"yulin.html\"><b>首&nbsp;&nbsp;页</b></a></li>\n" +
-                "<li><a id=\"menu\" href=\"history.html\"><b>历史地理</b></a></li>\n" +
-                "<li><a id=\"menu\" href=\"scenery.html\"><b>风景名胜</b></a></li>\n" +
-                "<li><a id=\"menu\" href=\"food.html\"><b>特色美食</b></a></li>\n" +
-                "<li><a id=\"menu\" href=\"more.html\"><b>了解更多</b></a></li>\n" +
-                "<li><a id=\"menu\" href=\"questionnaires.html\"><b>调查问卷</b></a></li>\n" +
-                "</ul>\n" +
+        String htmlCode="<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\">4月1日，在中国政府援助柬埔寨第二批新冠疫苗抵柬之际，王文天大使接受当地主流媒体巴戎电视台专访，就中国援柬疫苗和两国抗疫合作等回答提问，全文如下:<span class=\"bjh-br\"></span></span>\n" +
+                "\t</p>\n" +
                 "</div>\n" +
-                "<div>\n" +
-                "<img src=\"../photo/s1.jpg\" width=\"100%\" />\n" +
-                "</div>\n" +
-                "<div class=\"main\">\n" +
-                "<br>\n" +
-                "<center>\n" +
-                "<table width=\"1000\" style=\"font-family:'华文琥珀';font-size:24px;color:#000;\">\n" +
-                "  <tr>\n" +
-                "    <td style=\"width:250px;height:250px\"><center><img src=\"../photo/yulin-meishi-1.jpg\" width=\"240px\" height=\"200px\" style=\"border-radius:30%;overflow:hidden\" title=\"牛腩粉\" /></center></td>\n" +
-                "    <td>牛腩粉是著名的传统风味食品。因以调制好的熟牛腩做佐料而得名。起于民间，解放前就已出名。至今已遍及两广。 将选好的牛腩、牛筋等用沸水“飞过”捞起过冷水。中火起镬，下料把牛腩炒至收水后，配以沙姜、甘松、草果等煮30-40分钟即可。将炖好的牛腩、米粉下碗，然后把牛腩汤、骨头汤、肉丸调味下碗即成。清香、可口，富含高蛋白。</td>\n" +
-                "  </tr>\n" +
-                "  <tr>\n" +
-                "    <td style=\"width:250px;height:250px\"><center>\n" +
-                "      <img src=\"../photo/yulin-meishi-2.jpg\" width=\"240px\" height=\"200px\" style=\"border-radius:50%;overflow:hidden\" title=\"玉林牛巴\"/>\n" +
-                "    </center></td>\n" +
-                "    <td>玉林牛巴，其颜色半透明，色似咖啡，油亮，香味浓郁，咸甜适口，鲜美爽口，韧而不坚。色泽暗亮，气味醇香，肉质细而耐嚼，入口生香，令人回味。肉质细而有嚼劲，吃后满口生香，堪称地方一绝。</td>\n" +
-                "  </tr>\n" +
-                "  <tr>\n" +
-                "    <td style=\"width:250px;height:250px\"><center>\n" +
-                "      <img src=\"../photo/yulin-meishi-3.jpg\" width=\"240px\" height=\"200px\" style=\"border-radius:50%;overflow:hidden\" title=\"陆川猪肉\" />\n" +
-                "    </center></td>\n" +
-                "    <td>　陆川猪是全国八大地方优良品种之一。陆川猪肉的营养非常全面，除了蛋白质、脂肪等主要营养成分外，还含有钙、磷、铁、硫、胺素、核黄素和尼克酸等。其肉皮薄、肉嫩、肥而不腻，可加工成陆川猪扣肉、香肠、无皮五花腊肉、烧乳猪等。炸猪排、白切猪脚、脆皮扣等在宾宴上不可缺少的菜</td>\n" +
-                "  </tr>\n" +
-                "  <tr>\n" +
-                "  \t<td style=\"width:250px;height:250px\"><center>\n" +
-                "  \t  <img src=\"../photo/yulin-meishi-5.jpg\" width=\"240px\" height=\"200px\" style=\"border-radius:30%;overflow:hidden\" title=\"玉林茶泡\" />\n" +
-                "  \t</center></td>\n" +
-                "    <td>玉林茶泡是一种味道清甜的泡茶甜品，又是一种经精雕细錾、耐人观赏的工艺品。玉林茶泡在宋代已有。至清代，玉林的富户人家，在嫁女时用茶泡净遍亲戚朋友，俗称“新人茶”。在新郎到女家“迎亲”或“回门”时，女家须以大型精致的茶泡相馈赠。男家也须以同样规格的茶泡，馈赠女家的“送嫁娘”。逢春节，玉林民间常以茶泡招待宾客。</td>\n" +
-                "  </tr>\n" +
-                "  <tr>\n" +
-                "  \t<td style=\"width:250px;height:250px\"><center><img src=\"../photo/yuntun.jpg\" width=\"240px\" height=\"200px\" style=\"border-radius:50%;overflow:hidden\" title=\"石南云吞\"/></center></td>\n" +
-                "    <td>云吞的汤底很讲究，一般都是用猪筒骨，熬制一至两个小时，直至汤色浓白鲜美浓郁。煮熟后的云吞，它的白色面皮张开如云朵，若隐若现出可爱的粉红色。在乳白色的骨头汤里大只云吞好似船仔一样浮在汤面，肉馅随时要涨爆个皮。再撒上一把葱花，散发出幽幽的清香，在热气腾腾中细细品味。趁热入口，肉质结实，吃起来爽口弹牙！这时候再加点辣椒酱，那滋味实在是爽！</td>\n" +
-                "  </tr>\n" +
-                "</table>\n" +
-                "<br />\n" +
-                "<br />\n" +
-                "<br />\n" +
-                "<br />\n" +
-                "<br />\n" +
-                "<br />\n" +
-                "<a href=\"#\" class=\"demo\">\n" +
-                "\t<div class=\"img\" style=\"background-image:url(../photo/wine.jpg);\">\n" +
-                "    </div>\n" +
-                "\t<div class=\"mask\">\n" +
-                "    \t<div class=\"info\">\n" +
-                "        \t<h2>Life is beautiful</h2>\n" +
-                "        </div>\n" +
+                "<div class=\"index-module_mediaWrap_213jB\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<div class=\"index-module_contentImg_JmmC0\">\n" +
+                "\t\t<img src=\"https://pics2.baidu.com/feed/adaf2edda3cc7cd93529dd37a11c6c37b90e91fa.jpeg?token=5bf6a6b671e0011431dadb87ef5267f5\" width=\"640\" class=\"index-module_large_1mscr\" style=\"width:599px;\" />\n" +
                 "\t</div>\n" +
-                "    <div class=\"border\"></div>\n" +
-                "</a>\n" +
-                "<br />\n" +
-                "<br />\n" +
-                "<br />\n" +
-                "<br />\n" +
-                "<br />\n" +
-                "<table width=\"1500\" style=\"font-family:'华文琥珀';font-size:24px;color:#000;\">\n" +
-                "\t<tr>\n" +
-                "    \t<td style=\"width:500px;height:250px\"><center><img src=\"../photo/yulin-meishi-4.jpg\" width=\"240px\" height=\"200px\"  style=\"border-radius:50%;overflow:hidden\" title=\"容县沙田柚\" /></center></td>\n" +
-                "        <td style=\"width:500px;height:250px\"><center><img src=\"../photo/bobaiguiyan.jpg\" width=\"240px\" height=\"200px\" style=\"border-radius:50%;overflow:hidden\" title=\"博白桂圆\" /></center></td>\n" +
-                "        <td style=\"width:500px;height:250px\"><center><img src=\"../photo/suanliao.jpg\" width=\"240px\" height=\"200px\" style=\"border-radius:50%;overflow:hidden\" title=\"城隍酸料\" /></center></td>\n" +
-                "    </tr>\n" +
-                "</table>\n" +
-                "<table width=\"1520\" style=\"font-family:'华文琥珀';font-size:24px;color:#000\">\n" +
-                "\t<tr>\n" +
-                "    \t<td style=\"width:506px;height:200px\">容县沙田柚，果大形美、味甜蜜、耐贮藏；果面金黄色，果肉虾肉色，汁饱脆嫩、蜜味清甜；10月下旬成熟，极耐贮藏，果实可贮藏150 - 180天，贮后风味尤佳，有水果珍品\"天然罐头\"之美称。容县沙田柚营养丰富，有消食、化痰、止咳、润肺、醒酒等功效。</td>\n" +
-                "        <td style=\"width:506px;height:200px\">桂圆就是将新鲜龙眼去壳烘干后就成了龙眼干，俗称圆肉。广西称为“桂”，因此在这些特产名称前冠以“桂”字，龙眼干称为“桂圆”，圆肉称为“桂圆肉”。上等的桂圆色似琥珀，半透明而有光泽，松软而稍带弹性，含葡萄糖和多种维生素，营养丰富。</td>\n" +
-                "        <td style=\"width:506px;height:200px\">城隍酸料，是我国南方的一种传统美食小吃，有去火、降压、开胃、美容等功效。腌制方法为整个原料腌制，选料考究，风味独特，酸甜脆口。</td>\n" +
-                "    </tr>\n" +
-                "</table>\n" +
-                "</center>\n" +
-                "<center>\n" +
-                "<font face=\"MS Serif, New York, serif\" size=\"7\" color=\"#CC0000\">觉得美食不够？</font>\n" +
-                "<br />\n" +
-                "<font face=\"MS Serif, New York, serif\" size=\"+6\" color=\"#CC0000\">想<a href=\"https://www.xiangha.com/xiaochi/yulinshi/\">了解更多</a>？</font>\n" +
-                "</center>\n" +
                 "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">一、请问阁下如何看待柬政府的抗疫举措和疫苗接种进程？</span></span>\n" +
+                "\t</p>\n" +
                 "</div>\n" +
-                "<div style=\"background-color:#999;position:absolute;width:100%\">\n" +
-                "<br />\n" +
-                "<center>\n" +
-                "<a>&copy;GUET&nbsp;luohuiduo&nbsp;&nbsp;本网页的版权归作者所有&nbsp;&nbsp;网页内容仅代表个人观点</a>\n" +
-                "<br />\n" +
-                "<br />\n" +
-                "<a>如果你有好的资源和建议</a>\n" +
-                "<br />\n" +
-                "<br />\n" +
-                "<a>请联系我们</a>\n" +
-                "<br />\n" +
-                "<a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话&nbsp;&nbsp;123456789</a>\n" +
-                "<br />\n" +
-                "<a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;QQ&nbsp;&nbsp;2345678</a>\n" +
-                "<br />\n" +
-                "<a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;微信&nbsp;&nbsp;luo2435436122324</a>\n" +
-                "</center>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\">作为一个外交官我其实不应该对柬埔寨的内部事务评头论足，但是既然你问到了，我就谈几点个人感受：</span>\n" +
+                "\t</p>\n" +
                 "</div>\n" +
-                "</body>\n" +
-                "</html>\n";
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">首先，</span>我觉得在洪森首相的坚强领导下，柬埔寨的抗疫工作做得非常好，柬埔寨是国际社会公认的疫情防控综合成绩最好的国家之一。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">第二，</span>柬埔寨的防疫政策始终坚持“人民至上”的原则。为了减轻民众负担，政府出台了免费隔离、免费治疗、免费接种疫苗的政策，而且还为受疫情影响的家庭发放生活补助金，全力以赴救治确诊患者。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">第三,</span>柬埔寨十分重视抗疫国际合作。柬高度重视与世卫组织以及中国等友好国家的抗疫合作。疫情初期，柬埔寨向中国等友好国家捐赠了大量抗疫物资。洪森首相还批准无处停靠的外国邮轮停靠西哈努克港，体现了高尚的国际人道主义精神。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\">虽然目前柬埔寨疫情出现了一些反弹，但总体可控，相信在洪森首相的领导下，柬埔寨一定能打赢这场疫情阻击战。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\">柬埔寨的疫苗接种工作开展的也非常顺利。柬是东盟最早接种新冠疫苗的国家之一。为了有序开展接种工作，政府成立了疫苗采购委员会和疫苗接种委员会。一方面积极争取更多疫苗，另一方面按照优先顺序积极开展接种工作。我们相信在柬政府的有力协调和民众的积极配合下，一定能早日实现政府制定的接种目标。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">二、中方通过援助物资和派遣专家组等方式积极帮助柬方抗疫，并在近期最先向柬提供疫苗援助。请问中国政府尽心尽力帮助柬方的原因是什么？为什么最先向柬提供疫苗援助？</span></span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">答：</span>中国和柬埔寨是铁杆朋友和命运共同体，一向相互支持，相互帮助。新冠肺炎疫情发生以来，中柬两国人民同舟共济，守望相助，为抗疫国际合作树立了典范。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\">在中国抗疫最困难的时候，西哈莫尼国王和莫尼列太后两位陛下慷慨解囊，洪森首相冒着大雪逆行访华，武汉收到的第一批外国援助抗疫物资就来自柬埔寨。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\">柬发生疫情后，中方投桃报李，政府和军队分别向柬派出本地区和全球范围内第一支抗疫医疗专家组，并提供大量抗疫物资；中国疫苗有条件上市后，中方最先向柬埔寨提供疫苗援助。在我看来，这都是两国的“铁杆”情谊和命运共同体的应有之义。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">三、2020年2月5日洪森首相在中方遭受其他国家异样眼光之时赴华访问。是否由于那次访问使得中国政府和人民深受感动，成为中国现在帮助柬埔寨的重要原因之一？</span></span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">答：</span>洪森首相是中国出现疫情后第一位访华的外国政府首脑。当天，北京正下着雪，洪森首相走下飞机后，同前来接机的王毅国务委员兼外长紧紧拥抱，这个画面温暖了无数中国人的心。中国网友高度评价洪森首相此访，称他为“最帅逆行者”。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\">洪森首相此访以实际行动表明柬人民对中方抗击疫情的坚定支持，同时也生动诠释了“患难见真情”这一中柬命运共同体的核心要义，必将载入中柬友好的史册。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_mediaWrap_213jB\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<div class=\"index-module_contentImg_JmmC0\">\n" +
+                "\t\t<img src=\"https://pics6.baidu.com/feed/80cb39dbb6fd526638801a193f05da23d407363d.jpeg?token=0fda19ce197c18fe944331fe33d40497\" width=\"640\" class=\"index-module_large_1mscr\" style=\"width:599px;\" />\n" +
+                "\t</div>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">四、中方援助疫苗得到广大柬埔寨人民的热烈欢迎。但疫苗也成为一些政治投机者的攻击目标，声称中国疫苗会危及生命，并质疑柬政府利用中国疫苗屠杀柬埔寨人民。大使阁下是否会担心这些谣言会影响柬埔寨民众接种中国疫苗的信心？您对此有何看法？</span></span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">答：</span>中国疫苗的安全性、有效性得到了广泛和充分的验证。目前，已有70多个国家相继授权使用中国疫苗。中国国内累计报告接种人数近1.2亿剂次，柬国内也有十几万人接种了中国疫苗，并未发现有严重不良反应案例。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\">一些人在网上散播中国疫苗不安全的谣言，有些是为了通过耸人听闻的消息哗众取宠，博眼球；有的则是出于诋毁中国疫苗、干扰柬抗疫工作的政治目的。中国有句成语叫做“事实胜于雄辩”，中国疫苗是否安全有效，事实最终将证明给大家。关于柬埔寨政府利用中国疫苗杀害柬埔寨人民的质疑完全是胡说八道，不值一驳。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">五、阁下可能知道，洪森首相因为年龄原因宣布不接种国药疫苗。一些人曾表示，洪森首相不打中国疫苗而打阿斯利康疫苗会惹怒中国。您如何看待这一观点？</span></span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">答：</span>所谓洪森首相不打中国疫苗会惹怒中国的说法完全是无稽之谈。大家一定知道，洪森首相接种疫苗后，中国驻柬使馆在脸书上发帖专门表示祝贺。中国有句俗话叫做“不管白猫黑猫，能够抓住老鼠就是好猫”。因此，不论是中国疫苗还是其他疫苗，只要能帮助柬人民抵御新冠病毒侵袭，能为柬抗击新冠疫情发挥积极作用，都是可以接受的。我认为接种何种疫苗完全是个技术问题，不应该将其政治化。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">六、请问除了130万剂疫苗外，中方是否会向柬方提供其他抗疫帮助和疫苗无偿援助？</span></span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">答：</span>2月7日，中方援助的首批60万剂疫苗运抵金边；昨天，中方援助的第二批70万剂疫苗运抵金边，总共援助疫苗已有130万剂。我相信，未来中方将会根据柬方需要继续向柬提供疫苗援助。中方不仅将继续提供无偿援助疫苗，还将优先考虑安排柬方商采中国疫苗。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\">此外，中方援建的西港核酸检测实验室即将在4月中旬竣工，相关设备已经抵柬，实验室的日检量将达到1000人次。与此同时中方将派出医疗专家来西港进行相关设备安装和人员培训。总之，中方将根据柬方的需要，继续及时提供力所能及的抗疫援助。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">七、请问阁下有什么话想跟柬埔寨人民和中国在柬公民说？</span></span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\"><span class=\"bjh-strong\" style=\"font-size:18px;font-weight:700;\">答：</span>我想告诉广大柬埔寨朋友，中国和柬埔寨是情同手足的好兄弟，肝胆相照的好朋友。只要柬埔寨的疫情一天不结束，中国对柬埔寨的抗疫援助就一天不会停止。在抗击新冠疫情的斗争中，中国人民将始终与柬埔寨人民站在一起。</span>\n" +
+                "\t</p>\n" +
+                "</div>\n" +
+                "<div class=\"index-module_textWrap_3ygOc\" style=\"font-family:arial;background-color:#FFFFFF;\">\n" +
+                "\t<p style=\"font-size:16px;color:#333333;text-align:justify;\">\n" +
+                "\t\t<span class=\"bjh-p\">借这个机会，我愿告诉广大在柬的中国公民，疫情之下，党中央、祖国人民非常关心大家的身体健康。为了给海外中国公民接种疫苗，政府正在推进“春苗行动”。日前，驻柬使馆已按照柬方要求，对有意在柬接种国产疫苗的中国公民，包括港澳台同胞进行了摸底。这个名单已提交给了柬方。下一步，使馆将与柬方密切合作，争取让“春苗行动”早日在柬落地。同时也呼吁大家严格遵守柬各项防疫政策和规定，做一个文明守法有责任的中国人。</span>\n" +
+                "\t</p>\n" +
+                "</div>";
         return htmlCode;
     }
 }

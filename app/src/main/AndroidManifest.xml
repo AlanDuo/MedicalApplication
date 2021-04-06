@@ -34,13 +34,16 @@
         <activity android:name=".ui.my.PrescriptionActivity" />
         <activity android:name=".ui.my.WalletActivity" />
         <activity android:name=".ui.shop.GoodsActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
+
         </activity>
     </application>
 

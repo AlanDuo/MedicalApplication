@@ -9,15 +9,22 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.duo.medical.MainActivity;
 import com.duo.medical.R;
 import com.duo.medical.common.http.NetClient;
+import com.duo.medical.ui.my.ShopOrderDetailActivity;
+import com.duo.medical.ui.my.WaitToPayActivity;
 
 import org.json.JSONObject;
+
+import okhttp3.FormBody;
+import okhttp3.RequestBody;
 
 public class GoodsActivity extends AppCompatActivity {
     ImageView returnImage;
@@ -32,12 +39,14 @@ public class GoodsActivity extends AppCompatActivity {
     ImageView ivEvaluateUserImg;
     TextView tvEvaluateUsername;
     TextView tvEvaluateUserEvaluate;
+    Button btAddShopCart;
+    Button btRightBuy;
 
     GoodsInfoMode goodsInfoMode;
 
     //Handler运行在主线程中(UI线程中)，  它与子线程可以通过Message对象来传递数据
     @SuppressLint("HandlerLeak")
-    public Handler handler = new Handler() {
+    public Handler handler1 = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -56,6 +65,22 @@ public class GoodsActivity extends AppCompatActivity {
             }
         }
     };
+    //Handler运行在主线程中(UI线程中)，  它与子线程可以通过Message对象来传递数据
+    @SuppressLint("HandlerLeak")
+    public Handler handler2 = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1:
+                    Toast.makeText(GoodsActivity.this,"加入成功",Toast.LENGTH_SHORT).show();
+                    break;
+                case 2:
+                    Toast.makeText(GoodsActivity.this,"加入失败",Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,11 +107,13 @@ public class GoodsActivity extends AppCompatActivity {
         ivEvaluateUserImg = findViewById(R.id.iv_evaluate_user_img);
         tvEvaluateUsername = findViewById(R.id.tv_evaluate_username);
         tvEvaluateUserEvaluate = findViewById(R.id.tv_evaluate_user_evaluate);
+        btAddShopCart=findViewById(R.id.bt_add_shop_cart);
+        btRightBuy=findViewById(R.id.bt_right_buy);
 
         Intent intent=getIntent();
-        String goodsId=intent.getStringExtra("id");
-        String url="shop/consumer/goodsInfo/"+goodsId;
-        NetClient.getNetClient().callNet(url, "GET", null, new NetClient.MyCallBack() {
+        final String goodsId=intent.getStringExtra("id");
+        String goodsUrl="shop/consumer/goodsInfo/"+goodsId;
+        NetClient.getNetClient().callNet(goodsUrl, "GET", null, new NetClient.MyCallBack() {
             @Override
             public void onFailure(int code) {
 
@@ -116,10 +143,53 @@ public class GoodsActivity extends AppCompatActivity {
 
                     Message message = new Message();
                     message.what = 1;
-                    handler.sendMessage(message);
+                    handler1.sendMessage(message);
                 }catch(Exception e){
                     Log.e("json转换异常",e.getMessage());
                 }
+            }
+        });
+
+        btAddShopCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String addShopCartUrl="shop/shop_cart/addToShopCart";
+                RequestBody body = new FormBody.Builder()
+                        .add("goodsId",goodsId)
+                        .add("amount","1")
+                        .build();
+                NetClient.getNetClient().callNet(addShopCartUrl,"POST",body,new NetClient.MyCallBack(){
+                    @Override
+                    public void onFailure(int code) {
+
+                    }
+                    @Override
+                    public void onResponse(String json) {
+                        Log.e("数据详情:",json);
+                        try{
+                            JSONObject jsonObject=new JSONObject(json);
+                            String code=jsonObject.getString("code");
+                            Message message = new Message();
+                            if(code.equals("200")){
+                                message.what = 1;
+                            }else{
+                                message.what = 2;
+                            }
+                            handler2.sendMessage(message);
+                        }catch (Exception e){
+                            Log.e("json转换异常：",e.getMessage());
+                        }
+                    }
+                });
+            }
+        });
+        btRightBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(GoodsActivity.this, WaitToPayActivity.class);
+                intent1.putExtra("goodsId",goodsId);
+
+                startActivity(intent1);
             }
         });
 
