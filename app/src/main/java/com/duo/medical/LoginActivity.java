@@ -115,9 +115,6 @@ public class LoginActivity extends AppCompatActivity {
                         }catch (Exception e){
                             Log.v("json转换异常",e.getMessage());
                         }
-                        Message message = new Message();
-                        message.what = 1;
-                        handler.sendMessage(message);
                     }
                 });
 

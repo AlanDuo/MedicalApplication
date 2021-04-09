@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -22,19 +21,8 @@ import com.duo.medical.common.http.NetClient;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class ShopFragment extends Fragment {
     private HorizontalListView typeListView;
@@ -120,14 +108,13 @@ public class ShopFragment extends Fragment {
                         String desc=jsonObject1.optString("goodsName");
                         String price="￥"+jsonObject1.optString("wholesalePrice");
                         shopList.add(new ShopMode(id,img_url,desc,price));
-
-                        Message message = new Message();
-                        message.what = 1;
-                        handler.sendMessage(message);
                     }
                 }catch (Exception e){
                     Log.e("json转换异常",e.getMessage());
                 }
+                Message message = new Message();
+                message.what = 1;
+                handler.sendMessage(message);
             }
         });
     }
