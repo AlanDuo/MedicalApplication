@@ -107,7 +107,7 @@
                     android:layout_marginLeft="20dp"/>
 
                 <TextView
-                    android:id="@+id/tv_shop_order_detail_shop_desc"
+                    android:id="@+id/tv_shop_order_detail_goods_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"

@@ -29,9 +29,7 @@ public class HealthyArchivesActivity extends AppCompatActivity {
     List<HealthyArchivesListMode> archivesList;
     ImageView archivesReturn;
     ImageView addRecordImg;
-    TextView addRecordText;
-
-    //Handler运行在主线程中(UI线程中)，  它与子线程可以通过Message对象来传递数据
+    TextView addRecordText;//Handler运行在主线程中(UI线程中)，  它与子线程可以通过Message对象来传递数据
     @SuppressLint("HandlerLeak")
     public Handler handler = new Handler() {
         @Override
