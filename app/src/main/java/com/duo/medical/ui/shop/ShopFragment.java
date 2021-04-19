@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -64,14 +67,31 @@ public class ShopFragment extends Fragment {
         typeModeListInit();
         MedicineTypeAdapter typeAdapter=new MedicineTypeAdapter(getContext(),R.layout.item_index_medicine_type,typeList);
         typeListView.setAdapter(typeAdapter);
+        typeListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                String searchName=typeList.get(position).getmName();
+                recyclerView.removeAllViewsInLayout();
+                shopsInit(searchName);
+            }
+        });
 
         recyclerView=view.findViewById(R.id.shop_list);
-        shopsInit();
+        shopsInit(null);
         StaggeredGridLayoutManager staggeredGridLayoutManager=
                 new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
-
+        final EditText etSearchShopInput=view.findViewById(R.id.et_search_shop_input);
+        TextView textView=view.findViewById(R.id.tv_search);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchName=etSearchShopInput.getText().toString();
+                recyclerView.removeAllViewsInLayout();
+                shopsInit(searchName);
+            }
+        });
         return view;
     }
 
@@ -85,8 +105,8 @@ public class ShopFragment extends Fragment {
         typeList.add(new TypeMode(6,R.drawable.ic_birth,"育儿"));
         typeList.add(new TypeMode(7,R.drawable.ic_head,"心脑"));
     }
-    public void shopsInit(){
-        String url="shop/consumer/index";
+    public void shopsInit(String searchName){
+        String url="shop/consumer/index?searchName="+searchName;
         NetClient.getNetClient().callNet(url,"GET",null,new NetClient.MyCallBack(){
             @Override
             public void onFailure(int code){

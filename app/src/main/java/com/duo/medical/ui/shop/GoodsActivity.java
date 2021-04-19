@@ -44,6 +44,8 @@ public class GoodsActivity extends AppCompatActivity {
 
     GoodsInfoMode goodsInfoMode;
 
+    String goodsId=null;
+
     //Handler运行在主线程中(UI线程中)，  它与子线程可以通过Message对象来传递数据
     @SuppressLint("HandlerLeak")
     public Handler handler1 = new Handler() {
@@ -111,7 +113,7 @@ public class GoodsActivity extends AppCompatActivity {
         btRightBuy=findViewById(R.id.bt_right_buy);
 
         Intent intent=getIntent();
-        final String goodsId=intent.getStringExtra("id");
+        goodsId=intent.getStringExtra("id");
         String goodsUrl="shop/consumer/goodsInfo/"+goodsId;
         NetClient.getNetClient().callNet(goodsUrl, "GET", null, new NetClient.MyCallBack() {
             @Override
@@ -125,7 +127,7 @@ public class GoodsActivity extends AppCompatActivity {
                     JSONObject jsonObject=new JSONObject(json);
                     String data=jsonObject.getString("data");
                     JSONObject goodsJson=new JSONObject(data);
-                    String goodsId=goodsJson.getString("goodsId");
+                    //String goodsId=goodsJson.getString("goodsId");
                     String goodsName=goodsJson.getString("goodsName");
                     String goodsImg=goodsJson.getString("goodsImg");
                     String introImg=goodsJson.getString("introImg");

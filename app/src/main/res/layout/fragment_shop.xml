@@ -19,7 +19,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp">
             <EditText
-                android:id="@+id/search_shop_input"
+                android:id="@+id/et_search_shop_input"
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:layout_marginLeft="5dp"
@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"/>
         </FrameLayout>
         <TextView
+            android:id="@+id/tv_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -57,14 +58,6 @@
             android:layout_marginTop="15dp"
             android:src="@drawable/ic_order"/>
     </LinearLayout>
-    <!--<ListView
-        android:visibility="gone"
-        android:id="@+id/search_lv_tips"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"/>-->
 
     <com.duo.medical.common.HorizontalListView
         android:id="@+id/horizontal_shop_type"

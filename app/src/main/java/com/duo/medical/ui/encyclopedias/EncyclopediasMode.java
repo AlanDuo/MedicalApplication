@@ -1,7 +1,5 @@
 package com.duo.medical.ui.encyclopedias;
 
-import java.util.Date;
-
 public class EncyclopediasMode {
     private String picUrl;
     private String desc;

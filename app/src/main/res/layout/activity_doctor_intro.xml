@@ -49,7 +49,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"/>
         <TextView
-            android:id="@+id/iv_doctor_intro_name"
+            android:id="@+id/tv_doctor_intro_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="刘医生"
@@ -58,7 +58,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="100dp"/>
         <TextView
-            android:id="@+id/iv_doctor_intro_level"
+            android:id="@+id/tv_doctor_intro_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="主治医师"
@@ -66,7 +66,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="100dp"/>
         <TextView
-            android:id="@+id/iv_doctor_intro_category"
+            android:id="@+id/tv_doctor_intro_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="呼吸外科"
@@ -74,7 +74,7 @@
             android:layout_marginTop="50dp"
             android:layout_marginLeft="200dp"/>
         <TextView
-            android:id="@+id/iv_doctor_intro_hospital"
+            android:id="@+id/tv_doctor_intro_hospital"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="桂林医学院附属医院"
@@ -88,7 +88,7 @@
             android:layout_marginTop="140dp"
             android:layout_marginLeft="100dp"/>
         <TextView
-            android:id="@+id/iv_doctor_intro_visit"
+            android:id="@+id/tv_doctor_intro_visit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="200"
@@ -104,7 +104,7 @@
             android:layout_marginTop="140dp"
             android:layout_marginRight="100dp"/>
         <TextView
-            android:id="@+id/iv_doctor_intro_praise"
+            android:id="@+id/tv_doctor_intro_praise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="100%"
@@ -139,7 +139,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="10dp"/>
         <TextView
-            android:id="@+id/iv_doctor_intro_good"
+            android:id="@+id/tv_doctor_intro_good"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="干啥啥不行"
@@ -155,7 +155,7 @@
             android:layout_marginTop="80dp"
             android:layout_marginLeft="10dp"/>
         <TextView
-            android:id="@+id/iv_doctor_intro_detail"
+            android:id="@+id/tv_doctor_intro_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="长期从事呼吸内科的医疗、教学、科研工作。重点开展哮喘，慢阻肺疾病，呼吸衰竭和呼吸系统常见疾病的规范化诊疗、疑难病、少见病和呼吸危重症监护与救治等方面的研究。并首次证实了隐匿型哮喘的存在。他所领导的研究所对慢性不明原因咳嗽诊断成功率达85%，重症监护室抢救成功率达91%。"
