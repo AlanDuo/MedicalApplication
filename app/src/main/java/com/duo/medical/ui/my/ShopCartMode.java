@@ -1,30 +1,28 @@
 package com.duo.medical.ui.my;
 
 public class ShopCartMode {
-    private int shopCartId;
+    private String goodsId;
     private String shopImg;
     private String shopDesc;
-    private String shopType;
     private String shopPrice;
     private int shopAmount;
     private int select;
 
-    public ShopCartMode(int shopCartId, String shopImg, String shopDesc, String shopType, String shopPrice, int shopAmount,int select) {
-        this.shopCartId = shopCartId;
+    public ShopCartMode(String goodsId,String shopImg, String shopDesc, String shopPrice, int shopAmount,int select) {
+        this.goodsId=goodsId;
         this.shopImg = shopImg;
         this.shopDesc = shopDesc;
-        this.shopType = shopType;
         this.shopPrice = shopPrice;
         this.shopAmount = shopAmount;
         this.select=select;
     }
 
-    public int getShopCartId() {
-        return shopCartId;
+    public String getGoodsId(){
+        return goodsId;
     }
 
-    public void setShopCartId(int shopCartId) {
-        this.shopCartId = shopCartId;
+    public void setGoodsId(String goodsId){
+        this.goodsId=goodsId;
     }
 
     public String getShopImg() {
@@ -43,13 +41,6 @@ public class ShopCartMode {
         this.shopDesc = shopDesc;
     }
 
-    public String getShopType() {
-        return shopType;
-    }
-
-    public void setShopType(String shopType) {
-        this.shopType = shopType;
-    }
 
     public String getShopPrice() {
         return shopPrice;

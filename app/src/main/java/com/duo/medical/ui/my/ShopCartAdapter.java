@@ -42,7 +42,6 @@ public class ShopCartAdapter extends ArrayAdapter<ShopCartMode> {
             viewHolder=new ViewHolder();
             viewHolder.shopImg=view.findViewById(R.id.iv_shop_cart_shop_img);
             viewHolder.shopDesc=view.findViewById(R.id.tv_shop_cart_shop_desc);
-            viewHolder.shopType=view.findViewById(R.id.tv_shop_cart_shop_type);
             viewHolder.shopPrice=view.findViewById(R.id.tv_shop_cart_shop_price);
             viewHolder.shopAmount=view.findViewById(R.id.tv_shop_cart_shop_amount);
             viewHolder.chooseIt=view.findViewById(R.id.iv_choose_it);
@@ -64,7 +63,6 @@ public class ShopCartAdapter extends ArrayAdapter<ShopCartMode> {
 
         Glide.with(view).load(shopCartMode.getShopImg()).apply(options).into(viewHolder.shopImg);
         viewHolder.shopDesc.setText(shopCartMode.getShopDesc());
-        viewHolder.shopType.setText(shopCartMode.getShopType());
         viewHolder.shopPrice.setText("¥ "+shopCartMode.getShopPrice());
         viewHolder.shopAmount.setText(shopCartMode.getShopAmount()+"");
         if(shopCartMode.getSelect()>0){
@@ -98,7 +96,6 @@ public class ShopCartAdapter extends ArrayAdapter<ShopCartMode> {
         ImageView chooseIt;
         ImageView shopImg;
         TextView shopDesc;
-        TextView shopType;
         TextView shopPrice;
         TextView shopAmount;
         Button decrease;

@@ -54,7 +54,7 @@ public class GoodsActivity extends AppCompatActivity {
             switch (msg.what) {
                 case 1:
                     Glide.with(GoodsActivity.this).load(goodsInfoMode.getGoodsImg()).into(goodsImage);
-                    tvGoodsPrice.setText(goodsInfoMode.getWholesalePrice());
+                    tvGoodsPrice.setText("¥ "+goodsInfoMode.getWholesalePrice());
                     tvGoodsDesc.setText(goodsInfoMode.getGoodsDesc());
                     tvGoodsPurpose.setText(goodsInfoMode.getGoodsPurpose());
                     tvGoodsSource.setText( goodsInfoMode.getGoodsSource());

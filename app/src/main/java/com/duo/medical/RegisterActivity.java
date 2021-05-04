@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -25,6 +26,9 @@ import com.bumptech.glide.request.RequestOptions;
 import com.duo.medical.common.EncodePicToString;
 import com.duo.medical.common.FileUtil;
 import com.duo.medical.common.http.NetClient;
+
+import org.json.JSONObject;
+
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
 
@@ -116,7 +120,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }else{
                     gender="1";
                 }
-                String registerUrl="auth/oauth/register";
+                String registerUrl="user/user/register";
                 RequestBody body=new FormBody.Builder()
                         .add("userImg",userImgUrl)
                         .add("username",username)
@@ -135,9 +139,15 @@ public class RegisterActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String json) {
-                        Message message=new Message();
-                        message.what=1;
-                        handler.sendMessage(message);
+                        try {
+                            JSONObject jsonObject = new JSONObject(json);
+                            code=jsonObject.getString("code");
+                            Message message = new Message();
+                            message.what = 1;
+                            handler.sendMessage(message);
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
                     }
                 });
             }
@@ -167,6 +177,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         @Override
                         public void onResponse(String json) {
+                            Log.d("图片链接",json);
                             userImgUrl=json;
                         }
                     });

@@ -77,7 +77,7 @@ public class ShopFragment extends Fragment {
         });
 
         recyclerView=view.findViewById(R.id.shop_list);
-        shopsInit(null);
+        shopsInit("");
         StaggeredGridLayoutManager staggeredGridLayoutManager=
                 new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);

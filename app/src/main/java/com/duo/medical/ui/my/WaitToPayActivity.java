@@ -42,6 +42,13 @@ public class WaitToPayActivity extends AppCompatActivity {
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             Intent intent=new Intent(WaitToPayActivity.this,WaitToPayDetailActivity.class);
                             intent.putExtra("orderId",waitToPayList.get(position).getOrderId()+"");
+                            intent.putExtra("goodsId",waitToPayList.get(position).getGoodsId()+"");
+                            intent.putExtra("userId",waitToPayList.get(position).getUserId());
+                            intent.putExtra("amount",waitToPayList.get(position).getAmount());
+                            intent.putExtra("goodsDesc",waitToPayList.get(position).getOrderDesc());
+                            intent.putExtra("goodsImg",waitToPayList.get(position).getOrderImg());
+                            intent.putExtra("price",waitToPayList.get(position).getOrderPrice());
+                            intent.putExtra("goodsName",waitToPayList.get(position).getGoodsName());
                             startActivity(intent);
                         }
                     });
@@ -73,7 +80,7 @@ public class WaitToPayActivity extends AppCompatActivity {
     }
     public void waitToPayListInit(){
         waitToPayList=new ArrayList<>();
-        String waitToPayUrl="user/order/shopOrderList?status=1";
+        String waitToPayUrl="shop/order/wait_to_pay";
         NetClient.getNetClient().callNet(waitToPayUrl, "GET", null, new NetClient.MyCallBack() {
             @Override
             public void onFailure(int code) {
@@ -89,12 +96,16 @@ public class WaitToPayActivity extends AppCompatActivity {
                     JSONArray dataArray=new JSONArray(data);
                     int len=dataArray.length();
                     for(int i=0;i<len;i++){
-                        JSONObject orderJson=dataArray.getJSONObject(i);
-                        int orderId=Integer.parseInt(orderJson.getString("orderId"));
-                        String orderImg=orderJson.getString("goodsImg");
-                        String orderDesc=orderJson.getString("goodsDesc");
-                        String orderPrice=orderJson.getString("price");
-                        ShopOrderListMode mode=new ShopOrderListMode(orderId,orderImg,orderDesc,orderPrice);
+                        JSONObject object=dataArray.getJSONObject(i);
+                        int orderId=Integer.parseInt(object.getString("orderId"));
+                        String orderImg=object.getString("goodsImg");
+                        String orderDesc=object.getString("goodsDesc");
+                        String orderPrice=object.getString("wholesalePrice");
+                        int amount=Integer.parseInt(object.getString("amount"));
+                        long userId=Long.parseLong(object.getString("userId"));
+                        long goodsId=Long.parseLong(object.getString("goodsId"));
+                        String goodsName=object.getString("goodsName");
+                        ShopOrderListMode mode=new ShopOrderListMode(orderId,orderImg,orderDesc,orderPrice,amount,goodsId,userId,goodsName);
                         waitToPayList.add(mode);
                     }
                 }catch (Exception e){
@@ -105,8 +116,5 @@ public class WaitToPayActivity extends AppCompatActivity {
                 handler.sendMessage(message);
             }
         });
-//        waitToPayList.add(new ShopOrderListMode(1,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327523080,341660430&fm=26&gp=0.jpg","保为康口罩","¥ 20"));
-//        waitToPayList.add(new ShopOrderListMode(2,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327523080,341660430&fm=26&gp=0.jpg","保为康口罩","¥ 20"));
-
     }
 }

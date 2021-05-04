@@ -113,7 +113,7 @@ public class EncyclopediasFragment extends Fragment {
         new Thread(new AreaDataThread()).start();
 
         listView=view.findViewById(R.id.news_list);
-        encyclopediasListInit(null);
+        encyclopediasListInit("");
 
         final EditText etSearchNewsInput=view.findViewById(R.id.et_search_news_input);
         TextView tvSearch=view.findViewById(R.id.tv_search);
