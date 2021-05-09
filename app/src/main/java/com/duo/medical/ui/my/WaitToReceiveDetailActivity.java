@@ -72,8 +72,8 @@ public class WaitToReceiveDetailActivity extends AppCompatActivity {
         tvReceiver=findViewById(R.id.tv_wait_to_receive_receiver);
         tvPhone=findViewById(R.id.tv_wait_to_receive_phone);
         tvLocation=findViewById(R.id.tv_wait_to_receive_location);
-        tvCurrentLogistics.findViewById(R.id.tv_current_logistics);
-        tvCurrentLogisticsTime.findViewById(R.id.tv_current_logistics_time);
+        tvCurrentLogistics=findViewById(R.id.tv_current_logistics);
+        tvCurrentLogisticsTime=findViewById(R.id.tv_current_logistics_time);
         ivGoodsImg=findViewById(R.id.iv_wait_to_receive_detail_img);
         tvGoodsName=findViewById(R.id.tv_wait_to_receive_detail_goods_name);
         tvGoodsPrice=findViewById(R.id.tv_wait_to_receive_detail_price);

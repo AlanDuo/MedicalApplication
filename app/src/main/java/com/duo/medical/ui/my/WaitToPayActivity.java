@@ -43,8 +43,8 @@ public class WaitToPayActivity extends AppCompatActivity {
                             Intent intent=new Intent(WaitToPayActivity.this,WaitToPayDetailActivity.class);
                             intent.putExtra("orderId",waitToPayList.get(position).getOrderId()+"");
                             intent.putExtra("goodsId",waitToPayList.get(position).getGoodsId()+"");
-                            intent.putExtra("userId",waitToPayList.get(position).getUserId());
-                            intent.putExtra("amount",waitToPayList.get(position).getAmount());
+                            intent.putExtra("userId",waitToPayList.get(position).getUserId()+"");
+                            intent.putExtra("amount",waitToPayList.get(position).getAmount()+"");
                             intent.putExtra("goodsDesc",waitToPayList.get(position).getOrderDesc());
                             intent.putExtra("goodsImg",waitToPayList.get(position).getOrderImg());
                             intent.putExtra("price",waitToPayList.get(position).getOrderPrice());
@@ -109,7 +109,7 @@ public class WaitToPayActivity extends AppCompatActivity {
                         waitToPayList.add(mode);
                     }
                 }catch (Exception e){
-                    Log.e("json转换异常",e.getMessage());
+                    e.printStackTrace();
                 }
                 Message message = new Message();
                 message.what = 1;

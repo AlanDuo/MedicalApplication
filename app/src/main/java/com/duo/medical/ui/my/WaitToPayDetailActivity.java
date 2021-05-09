@@ -81,12 +81,12 @@ public class WaitToPayDetailActivity extends AppCompatActivity {
         etLocation=findViewById(R.id.et_wait_to_pay_location);
         ivGoodsImg=findViewById(R.id.iv_wait_to_pay_detail_img);
         tvGoodsName=findViewById(R.id.tv_wait_to_pay_detail_goods_name);
-        tvGoodsPrice=findViewById(R.id.tv_wait_to_pay_price);
+        tvGoodsPrice=findViewById(R.id.tv_wait_to_pay_detail_price);
         tvAmount=findViewById(R.id.tv_wait_to_pay_detail_amount);
         totalPrice=findViewById(R.id.tv_wait_to_pay_detail_total_price);
         tvRealPay=findViewById(R.id.tv_wait_to_pay_detail_real_pay);
         tvOrderNum=findViewById(R.id.tv_wait_to_pay_order_number);
-        btPay=findViewById(R.id.bt_wait_to_pay_toPay);
+        btPay=findViewById(R.id.bt_wait_to_pay_detail_toPay);
 
         waitToPayDetailReturn=findViewById(R.id.iv_wait_to_pay_detail_return);
         waitToPayDetailReturn.setOnClickListener(new View.OnClickListener() {
@@ -140,6 +140,7 @@ public class WaitToPayDetailActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String json) {
+                        System.out.println(json);
                         Message message=new Message();
                         message.what=1;
                         handler.sendMessage(message);

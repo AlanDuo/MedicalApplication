@@ -52,7 +52,7 @@ public class ConsultationFragment extends Fragment {
 
     public void doctorListInit(){
         doctorList=new ArrayList<>();
-        String doctorListUrl="consultation/doctorRecommend";
+        /*String doctorListUrl="consultation/doctorRecommend";
         NetClient.getNetClient().callNet(doctorListUrl, "GET", null, new NetClient.MyCallBack() {
             @Override
             public void onFailure(int code) {
@@ -86,15 +86,17 @@ public class ConsultationFragment extends Fragment {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
 
-//        doctorList.add(new DoctorListMode(1,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
-//        doctorList.add(new DoctorListMode(2,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
-//        doctorList.add(new DoctorListMode(3,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
-//        doctorList.add(new DoctorListMode(4,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
-//        doctorList.add(new DoctorListMode(5,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
-//        doctorList.add(new DoctorListMode(6,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
-
+        doctorList.add(new DoctorListMode(1,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
+        doctorList.add(new DoctorListMode(2,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
+        doctorList.add(new DoctorListMode(3,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
+        doctorList.add(new DoctorListMode(4,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
+        doctorList.add(new DoctorListMode(5,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
+        doctorList.add(new DoctorListMode(6,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
+        Message message=new Message();
+        message.what=1;
+        handler.sendMessage(message);
 
     }
 }

@@ -30,12 +30,17 @@ public class NcovData {
         int size=jsonArray.size();
         for(int i=0;i<size;i++) {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
+            System.out.println(jsonObject);
             if("CHN".equals(jsonObject.getString("countryShortCode"))){
                 chineseConfirmedCount=Integer.parseInt(jsonObject.getString("confirmedCount"));
                 chineseCurrentConfirmedCount=Integer.parseInt(jsonObject.getString("currentConfirmedCount"));
                 String incrVo=jsonObject.getString("incrVo");
-                JSONObject incr=JSONObject.parseObject(incrVo);
-                chineseIncrVoConfirmedIncr=Integer.parseInt(incr.getString("confirmedIncr"));
+                try {
+                    JSONObject incr = JSONObject.parseObject(incrVo);
+                    chineseIncrVoConfirmedIncr = Integer.parseInt(incr.getString("confirmedIncr"));
+                }catch (Exception e){
+                    System.out.println("当日没有新增");
+                }
             }else{
                 abroadConfirmedCount+= Integer.parseInt(jsonObject.getString("confirmedCount"));
                 abroadCurrentConfirmedCount+=Integer.parseInt(jsonObject.getString("currentConfirmedCount"));
@@ -52,8 +57,14 @@ public class NcovData {
         map.put("abroadCurrentConfirmedCount",abroadCurrentConfirmedCount);
         return map;
     }
-    /*public static void main(String[] args) throws Exception{
-        getAreaStat();
+   /* public static void main(String[] args) throws Exception{
+        String allData=getAreaStat();
+        JSONArray jsonArray=JSONArray.parseArray(allData);
+        int size=jsonArray.size();
+        for(int i=0;i<size;i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            System.out.println(jsonObject);
+        }
     }*/
 
 

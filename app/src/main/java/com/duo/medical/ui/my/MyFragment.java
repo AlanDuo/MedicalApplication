@@ -39,6 +39,9 @@ public class MyFragment extends Fragment {
 
     ImageView ivUserImg;
     TextView tvUsername;
+    String userId;
+    String phone;
+    String idCard;
     String userImg;
     String username;
 
@@ -83,6 +86,9 @@ public class MyFragment extends Fragment {
                     JSONObject jsonObject=new JSONObject(json);
                     String data=jsonObject.getString("data");
                     JSONObject dataJson=new JSONObject(data);
+                    userId=dataJson.getString("userId");
+                    phone=dataJson.getString("phone");
+                    idCard=dataJson.getString("idCard");
                     userImg=dataJson.getString("userImg");
                     username=dataJson.getString("username");
                 }catch (Exception e){
@@ -94,7 +100,18 @@ public class MyFragment extends Fragment {
                 handler.sendMessage(message);
             }
         });
-
+        ivUserImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),PersonInfoActivity.class);
+                intent.putExtra("userId",userId);
+                intent.putExtra("username",username);
+                intent.putExtra("userImg",userImg);
+                intent.putExtra("idCard",idCard);
+                intent.putExtra("phone",phone);
+                startActivity(intent);
+            }
+        });
         walletImg=view.findViewById(R.id.iv_tools_wallet);
         walletImg.setOnClickListener(new View.OnClickListener() {
             @Override

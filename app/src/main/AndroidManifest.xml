@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".ui.my.PersonInfoActivity"></activity>
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".ui.encyclopedias.EncyclopediasDetailsActivity" />
         <activity android:name=".ui.consultation.DoctorIntroActivity" />
         <activity android:name=".ui.consultation.ConsultationActivity" />
@@ -44,7 +45,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

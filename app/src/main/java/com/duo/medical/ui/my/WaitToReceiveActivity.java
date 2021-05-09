@@ -71,7 +71,7 @@ public class WaitToReceiveActivity extends AppCompatActivity {
     }
     public void waitToReceiveListInit(){
         waitToReceiveList=new ArrayList<>();
-        String waitToPayUrl="user/order/shopOrderList?status=1";
+        String waitToPayUrl="user/order/shopOrderList/1";
         NetClient.getNetClient().callNet(waitToPayUrl, "GET", null, new NetClient.MyCallBack() {
             @Override
             public void onFailure(int code) {
