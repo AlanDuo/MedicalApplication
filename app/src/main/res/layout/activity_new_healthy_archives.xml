@@ -53,9 +53,18 @@
                     android:text="姓名"
                     android:textSize="16sp"
                     android:textColor="@color/colorBlack"/>
+                <EditText
+                    android:id="@+id/et_new_archives_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="50dp"
+                    android:background="@null"
+                    android:hint="罗惠铎"/>
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="0.5dp"
                     android:background="@color/colorLineGray"
                     android:layout_marginTop="35dp"
                     android:layout_marginLeft="20dp"
@@ -68,9 +77,18 @@
                     android:text="与本人关系"
                     android:textSize="16sp"
                     android:textColor="@color/colorBlack"/>
+                <EditText
+                    android:id="@+id/et_new_archives_relation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="50dp"
+                    android:background="@null"
+                    android:hint="本人"/>
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="0.5dp"
                     android:background="@color/colorLineGray"
                     android:layout_marginTop="80dp"
                     android:layout_marginLeft="20dp"
@@ -83,9 +101,18 @@
                     android:text="诊断名称"
                     android:textSize="16sp"
                     android:textColor="@color/colorBlack"/>
+                <EditText
+                    android:id="@+id/et_new_archives_result"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="95dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="50dp"
+                    android:background="@null"
+                    android:hint="新冠肺炎"/>
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="0.5dp"
                     android:background="@color/colorLineGray"
                     android:layout_marginTop="125dp"
                     android:layout_marginLeft="20dp"
@@ -98,9 +125,18 @@
                     android:text="就诊/入院日期"
                     android:textSize="16sp"
                     android:textColor="@color/colorBlack"/>
+                <EditText
+                    android:id="@+id/et_new_archives_in_hospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="140dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="50dp"
+                    android:background="@null"
+                    android:hint="2021-01-01"/>
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="0.5dp"
                     android:background="@color/colorLineGray"
                     android:layout_marginTop="170dp"
                     android:layout_marginLeft="20dp"
@@ -113,12 +149,22 @@
                     android:text="就诊/入院日期"
                     android:textSize="16sp"
                     android:textColor="@color/colorBlack"/>
+                <EditText
+                    android:id="@+id/et_new_archives_out_hospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="185dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="50dp"
+                    android:background="@null"
+                    android:hint="2021-03-03"/>
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
                     android:background="@color/colorBackground"
                     android:layout_marginTop="215dp" />
                 <EditText
+                    android:id="@+id/et_new_archives_remark"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_marginTop="225dp"
@@ -140,6 +186,7 @@
                     android:textSize="16sp"
                     android:textColor="@color/colorBlack" />
                 <ImageView
+                    android:id="@+id/iv_new_archives_prescription"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginTop="380dp"
@@ -165,6 +212,15 @@
                     android:text="就诊医院"
                     android:textSize="16sp"
                     android:textColor="@color/colorBlack" />
+                <EditText
+                    android:id="@+id/et_new_archives_hospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="520dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="50dp"
+                    android:background="@null"
+                    android:hint="桂林市人民医院"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -173,6 +229,15 @@
                     android:text="诊断科室"
                     android:textSize="16sp"
                     android:textColor="@color/colorBlack" />
+                <EditText
+                    android:id="@+id/et_new_archives_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="550dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="50dp"
+                    android:background="@null"
+                    android:hint="五官科"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -181,6 +246,15 @@
                     android:text="就诊医生"
                     android:textSize="16sp"
                     android:textColor="@color/colorBlack" />
+                <EditText
+                    android:id="@+id/et_new_archives_doctor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="580dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="50dp"
+                    android:background="@null"
+                    android:hint="刘医生"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -189,7 +263,17 @@
                     android:text="诊室电话"
                     android:textSize="16sp"
                     android:textColor="@color/colorBlack" />
+                <EditText
+                    android:id="@+id/et_new_archives_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="610dp"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="50dp"
+                    android:background="@null"
+                    android:hint="12346789"/>
                 <Button
+                    android:id="@+id/bt_new_archives_save"
                     android:layout_width="300dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="650dp"

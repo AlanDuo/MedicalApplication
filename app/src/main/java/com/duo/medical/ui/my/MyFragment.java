@@ -44,6 +44,7 @@ public class MyFragment extends Fragment {
     String idCard;
     String userImg;
     String username;
+    String gender;
 
     //Handler运行在主线程中(UI线程中)，  它与子线程可以通过Message对象来传递数据
     @SuppressLint("HandlerLeak")
@@ -91,6 +92,13 @@ public class MyFragment extends Fragment {
                     idCard=dataJson.getString("idCard");
                     userImg=dataJson.getString("userImg");
                     username=dataJson.getString("username");
+                    String genderByte=dataJson.getString("gender");
+                    if("0".equals(genderByte)){
+                        gender="男";
+                    }else{
+                        gender="女";
+                    }
+
                 }catch (Exception e){
                     Log.e("json转换异常",e.getMessage());
                 }
@@ -135,6 +143,10 @@ public class MyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(),HealthyArchivesActivity.class);
+                intent.putExtra("userId",userId);
+                intent.putExtra("username",username);
+                intent.putExtra("userImg",userImg);
+                intent.putExtra("gender",gender);
                 startActivity(intent);
             }
         });

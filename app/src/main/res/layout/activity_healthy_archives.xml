@@ -50,7 +50,7 @@
         android:background="@drawable/rounded_card">
 
         <ImageView
-            android:id="@+id/iv_archives_user_mg"
+            android:id="@+id/iv_archives_user_img"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"

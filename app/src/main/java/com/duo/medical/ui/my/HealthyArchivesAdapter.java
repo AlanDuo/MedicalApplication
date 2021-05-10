@@ -32,7 +32,7 @@ public class HealthyArchivesAdapter extends ArrayAdapter<HealthyArchivesListMode
 
         TextView sickName=view.findViewById(R.id.tv_archives_sick_name);
         TextView recordDate=view.findViewById(R.id.tv_archives_sick_time);
-        sickName.setText(archivesMode.getSickName()+"（"+archivesMode.getPatient()+"）");
+        sickName.setText(archivesMode.getSickName()+"("+archivesMode.getPatient()+")");
         recordDate.setText(archivesMode.getRecordDate());
 
         ViewHolder viewHolder;

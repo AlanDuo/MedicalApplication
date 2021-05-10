@@ -284,7 +284,7 @@
         android:background="@color/colorPrimaryWhite">
 
         <Button
-            android:id="@+id/bt_wait_to_receive_detail_toPay"
+            android:id="@+id/bt_wait_to_receive_sure_receive"
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:layout_gravity="right"

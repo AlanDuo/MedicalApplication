@@ -98,7 +98,7 @@ public class OrderActivity extends AppCompatActivity {
     }
     public void shopOrderInit(){
         shopOrderList=new ArrayList<>();
-        String shopOrderUrl="user/order/shopOrderList?status=3";
+        String shopOrderUrl="user/order/shopOrderList/2";
         NetClient.getNetClient().callNet(shopOrderUrl, "GET", null, new NetClient.MyCallBack() {
             @Override
             public void onFailure(int code) {
@@ -131,8 +131,8 @@ public class OrderActivity extends AppCompatActivity {
             }
         });
 
-        shopOrderList.add(new ShopOrderListMode(1,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327523080,341660430&fm=26&gp=0.jpg","保为康口罩","¥ 20"));
-        shopOrderList.add(new ShopOrderListMode(2,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327523080,341660430&fm=26&gp=0.jpg","保为康口罩","¥ 20"));
+        //shopOrderList.add(new ShopOrderListMode(1,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327523080,341660430&fm=26&gp=0.jpg","保为康口罩","¥ 20"));
+        //shopOrderList.add(new ShopOrderListMode(2,"https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=327523080,341660430&fm=26&gp=0.jpg","保为康口罩","¥ 20"));
     }
     public void consultationOrderListInit(){
         consultationOrderList=new ArrayList<>();

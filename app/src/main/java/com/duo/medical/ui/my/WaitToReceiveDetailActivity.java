@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,9 @@ import com.duo.medical.R;
 import com.duo.medical.common.http.NetClient;
 
 import org.json.JSONObject;
+
+import okhttp3.FormBody;
+import okhttp3.RequestBody;
 
 public class WaitToReceiveDetailActivity extends AppCompatActivity {
     ImageView receiveDetailReturnImg;
@@ -36,6 +40,8 @@ public class WaitToReceiveDetailActivity extends AppCompatActivity {
     TextView tvOrderNum;
     TextView tvLogisticsNumber;
     TextView tvOrderTime;
+
+    Button btSureReceive;
 
     //Handler运行在主线程中(UI线程中)，  它与子线程可以通过Message对象来传递数据
     @SuppressLint("HandlerLeak")
@@ -57,6 +63,20 @@ public class WaitToReceiveDetailActivity extends AppCompatActivity {
                     tvOrderNum.setText(orderDetailMode.getOrderNum());
                     tvLogisticsNumber.setText(orderDetailMode.getOrderNum());
                     tvOrderTime.setText(orderDetailMode.getCreateTime());
+                    break;
+            }
+        }
+    };
+
+    @SuppressLint("HandlerLeak")
+    public Handler handler1 = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1:
+                    Intent intent=new Intent(WaitToReceiveDetailActivity.this,ShopOrderDetailActivity.class);
+                    intent.putExtra("orderId",orderDetailMode.getOrderId());
+                    startActivity(intent);
                     break;
             }
         }
@@ -93,7 +113,7 @@ public class WaitToReceiveDetailActivity extends AppCompatActivity {
             }
         });
         Intent intent=getIntent();
-        String orderId=intent.getStringExtra("orderId");
+        final String orderId=intent.getStringExtra("orderId");
         String waitToReceiveUrl="user/order/shopOrderDetail/"+orderId;
         NetClient.getNetClient().callNet(waitToReceiveUrl, "GET", null, new NetClient.MyCallBack() {
             @Override
@@ -135,6 +155,32 @@ public class WaitToReceiveDetailActivity extends AppCompatActivity {
                 }catch(Exception e){
                     Log.e("json转换异常：",e.getStackTrace()+"");
                 }
+            }
+        });
+
+        btSureReceive=findViewById(R.id.bt_wait_to_receive_sure_receive);
+        btSureReceive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String sureReceiveUrl="user/order/change_status";
+                RequestBody  body=new FormBody.Builder()
+                        .add("orderId",orderId)
+                        .add("status","2")
+                        .build();
+                NetClient.getNetClient().callNet(sureReceiveUrl, "PUT", body, new NetClient.MyCallBack() {
+                    @Override
+                    public void onFailure(int code) {
+
+                    }
+
+                    @Override
+                    public void onResponse(String json) {
+                        System.out.println(json);
+                        Message message=new Message();
+                        message.what=1;
+                        handler1.sendMessage(message);
+                    }
+                });
             }
         });
     }

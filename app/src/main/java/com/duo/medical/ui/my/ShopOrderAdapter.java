@@ -79,6 +79,7 @@ public class ShopOrderAdapter extends ArrayAdapter<ShopOrderListMode> {
             if(vId==viewHolder.orderDetail.getId()){
                 Toast.makeText(mContext,"详情按钮"+vId,Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(mContext,ShopOrderDetailActivity.class);
+                intent.putExtra("orderId",mData.get(position).getOrderId()+"");
                 mContext.startActivity(intent);
             } else if(vId==viewHolder.orderEvaluate.getId()){
                 Toast.makeText(mContext,"评价按钮",Toast.LENGTH_SHORT).show();

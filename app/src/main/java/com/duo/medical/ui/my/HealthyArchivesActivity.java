@@ -14,8 +14,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.duo.medical.MainActivity;
 import com.duo.medical.R;
+import com.duo.medical.common.GlideRoundTransform;
 import com.duo.medical.common.http.NetClient;
 
 import org.json.JSONArray;
@@ -29,7 +34,15 @@ public class HealthyArchivesActivity extends AppCompatActivity {
     List<HealthyArchivesListMode> archivesList;
     ImageView archivesReturn;
     ImageView addRecordImg;
-    TextView addRecordText;//Handler运行在主线程中(UI线程中)，  它与子线程可以通过Message对象来传递数据
+    TextView addRecordText;
+
+    ImageView ivArchivesUserImg;
+    TextView ivArchivesUserName;
+    TextView ivArchivesUserGender;
+
+    String userId;
+
+    //Handler运行在主线程中(UI线程中)，  它与子线程可以通过Message对象来传递数据
     @SuppressLint("HandlerLeak")
     public Handler handler = new Handler() {
         @Override
@@ -67,6 +80,27 @@ public class HealthyArchivesActivity extends AppCompatActivity {
             }
         });
 
+        ivArchivesUserImg=findViewById(R.id.iv_archives_user_img);
+        ivArchivesUserName=findViewById(R.id.iv_archives_user_name);
+        ivArchivesUserGender=findViewById(R.id.iv_archives_user_gender);
+
+        Intent intent=getIntent();
+        userId=intent.getStringExtra("userId");
+        String username=intent.getStringExtra("username");
+        String userImg=intent.getStringExtra("userImg");
+        String gender=intent.getStringExtra("gender");
+
+        ivArchivesUserName.setText(username);
+        ivArchivesUserGender.setText(gender);
+        RequestOptions options = new RequestOptions()
+                .centerCrop()
+                .placeholder(R.mipmap.ic_launcher_round) //预加载图片
+                .error(R.drawable.ic_launcher_foreground) //加载失败图片
+                .priority(Priority.HIGH) //优先级
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .transform(new GlideRoundTransform(50)); //圆角
+        Glide.with(HealthyArchivesActivity.this).load(userImg).apply(options).into(ivArchivesUserImg);
+
         archivesListView=findViewById(R.id.lv_archives_list);
         archivesListInit();
 
@@ -86,6 +120,7 @@ public class HealthyArchivesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
     public void archivesListInit(){
         archivesList=new ArrayList<>();
