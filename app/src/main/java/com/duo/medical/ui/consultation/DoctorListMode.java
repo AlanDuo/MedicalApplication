@@ -1,6 +1,7 @@
 package com.duo.medical.ui.consultation;
 
 public class DoctorListMode {
+    private int userId;
     private int doctorId;
     private String doctorImg;
     private String doctorName;
@@ -8,7 +9,8 @@ public class DoctorListMode {
     private String doctorCompany;
     private String doctorGood;
 
-    public DoctorListMode(int doctorId,String doctorImg,String doctorName,String doctorLevel,String doctorCompany,String doctorGood){
+    public DoctorListMode(int userId,int doctorId,String doctorImg,String doctorName,String doctorLevel,String doctorCompany,String doctorGood){
+        this.userId=userId;
         this.doctorId=doctorId;
         this.doctorImg=doctorImg;
         this.doctorName=doctorName;
@@ -16,11 +18,17 @@ public class DoctorListMode {
         this.doctorCompany=doctorCompany;
         this.doctorGood=doctorGood;
     }
-    public int getSoctorId() {
+    public int getUserId(){
+        return userId;
+    }
+    public void setUserId(int userId){
+        this.userId=userId;
+    }
+    public int getDoctorId() {
         return doctorId;
     }
 
-    public void setSoctorId(int doctorId) {
+    public void setDoctorId(int doctorId) {
         this.doctorId = doctorId;
     }
 

@@ -52,7 +52,7 @@ public class ConsultationFragment extends Fragment {
 
     public void doctorListInit(){
         doctorList=new ArrayList<>();
-        /*String doctorListUrl="consultation/doctorRecommend";
+        String doctorListUrl="consultation/consultation/doctorRecommend";
         NetClient.getNetClient().callNet(doctorListUrl, "GET", null, new NetClient.MyCallBack() {
             @Override
             public void onFailure(int code) {
@@ -70,12 +70,13 @@ public class ConsultationFragment extends Fragment {
                     for(int i=0;i<len;i++){
                         JSONObject object=jsonArray.getJSONObject(i);
                         int doctorId=Integer.parseInt(object.getString("doctorId"));
+                        int userId=Integer.parseInt(object.getString("userId"));
                         String doctorImg=object.getString("userImg");
                         String doctorName=object.getString("username");
                         String doctorLevel=object.getString("level");
                         String doctorCompany=object.getString("hospital")+"·"+object.getString("category");
                         String doctorGood=object.getString("goodAt");
-                        doctorList.add(new DoctorListMode(doctorId,doctorImg,doctorName,doctorLevel,doctorCompany,doctorGood));
+                        doctorList.add(new DoctorListMode(userId,doctorId,doctorImg,doctorName,doctorLevel,doctorCompany,doctorGood));
 
                         Message message=new Message();
                         message.what=1;
@@ -86,9 +87,9 @@ public class ConsultationFragment extends Fragment {
                     e.printStackTrace();
                 }
             }
-        });*/
+        });
 
-        doctorList.add(new DoctorListMode(1,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
+        /*doctorList.add(new DoctorListMode(1,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
         doctorList.add(new DoctorListMode(2,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
         doctorList.add(new DoctorListMode(3,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
         doctorList.add(new DoctorListMode(4,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
@@ -96,7 +97,7 @@ public class ConsultationFragment extends Fragment {
         doctorList.add(new DoctorListMode(6,"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3805721873,3379516022&fm=26&gp=0.jpg","刘医生","副主任医师","桂林附属医院 · 呼吸外科","啥也不会，干啥啥不行"));
         Message message=new Message();
         message.what=1;
-        handler.sendMessage(message);
+        handler.sendMessage(message);*/
 
     }
 }

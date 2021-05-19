@@ -82,6 +82,7 @@ public class DoctorListAdapter extends ArrayAdapter<DoctorListMode> {
             if(vId==viewHolder.btDoctorAsk.getId()){
                 Toast.makeText(mContext,"咨询按钮"+position,Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(mContext,ConsultationActivity.class);
+                intent.putExtra("userId",mData.get(position).getUserId()+"");
                 mContext.startActivity(intent);
             }
         }

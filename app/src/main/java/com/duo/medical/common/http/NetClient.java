@@ -17,7 +17,7 @@ import okhttp3.Response;
  * 请求的封装
  */
 public class NetClient {
-    private static final String PATH="http://192.168.43.50:9201/";
+    private static final String PATH="http://10.34.118.89:9201/";
     private static NetClient netClient;
     public final OkHttpClient client;
     private NetClient(){

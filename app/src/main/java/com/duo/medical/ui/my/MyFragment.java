@@ -39,10 +39,10 @@ public class MyFragment extends Fragment {
 
     ImageView ivUserImg;
     TextView tvUsername;
-    String userId;
+    public static String userId;
     String phone;
     String idCard;
-    String userImg;
+    public static String userImg;
     String username;
     String gender;
 
