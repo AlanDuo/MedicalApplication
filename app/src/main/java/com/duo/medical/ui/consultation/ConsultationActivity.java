@@ -83,6 +83,7 @@ public class ConsultationActivity extends AppCompatActivity {
         Intent intent=getIntent();
         toUser=intent.getStringExtra("userId");
 
+
         URI serverURI = URI.create("ws://192.168.43.50:9020/consultation/websocket/"+ MyFragment.userId);
         webSocketClient = new WebSocketClient(serverURI) {
             @Override
