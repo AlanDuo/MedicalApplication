@@ -102,7 +102,7 @@ public class PrescriptionDetailActivity extends AppCompatActivity {
                     String age=dataJson.getString("age");
                     String doctorName=dataJson.getString("doctorName");
                     String doctorPhone=dataJson.getString("doctorPhone");
-                    String hospitalAddress=dataJson.getString("hospitalAddress");
+                    String hospitalAddress=dataJson.getString("hospital");
                     String hospital=dataJson.getString("hospital");
                     String category=dataJson.getString("category");
                     String level=dataJson.getString("level");

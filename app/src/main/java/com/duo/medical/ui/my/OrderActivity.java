@@ -98,7 +98,7 @@ public class OrderActivity extends AppCompatActivity {
     }
     public void shopOrderInit(){
         shopOrderList=new ArrayList<>();
-        String shopOrderUrl="user/order/shopOrderList/2";
+        String shopOrderUrl="user/order/shopOrderList/4";
         NetClient.getNetClient().callNet(shopOrderUrl, "GET", null, new NetClient.MyCallBack() {
             @Override
             public void onFailure(int code) {

@@ -77,6 +77,7 @@ public class DoctorListAdapter extends ArrayAdapter<DoctorListMode> {
             int vId=v.getId();
             if(vId==viewHolder.btDoctorIntro.getId()){
                 Intent intent=new Intent(mContext,DoctorIntroActivity.class);
+                intent.putExtra("doctorId",mData.get(position).getDoctorId()+"");
                 mContext.startActivity(intent);
             }
             if(vId==viewHolder.btDoctorAsk.getId()){

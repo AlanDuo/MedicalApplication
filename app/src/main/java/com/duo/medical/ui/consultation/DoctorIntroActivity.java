@@ -82,7 +82,7 @@ public class DoctorIntroActivity extends AppCompatActivity {
 
         Intent intent=getIntent();
         String doctorId=intent.getStringExtra("doctorId");
-        String introUrl="consultation/doctorIntro/"+doctorId;
+        String introUrl="consultation/consultation/doctorIntro/"+doctorId;
         NetClient.getNetClient().callNet(introUrl, "GET", null, new NetClient.MyCallBack() {
             @Override
             public void onFailure(int code) {

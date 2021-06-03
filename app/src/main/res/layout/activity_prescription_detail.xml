@@ -118,7 +118,7 @@
                     android:layout_marginTop="60dp"/>
                 <EditText
                     android:id="@+id/et_patient_sick_room"
-                    android:layout_width="140dp"
+                    android:layout_width="120dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="60dp"
                     android:layout_marginTop="50dp"
@@ -132,13 +132,13 @@
                     android:text="开具日期"
                     android:textSize="16sp"
                     android:textColor="@color/colorBlack"
-                    android:layout_marginLeft="200dp"
+                    android:layout_marginLeft="190dp"
                     android:layout_marginTop="60dp"/>
                 <EditText
                     android:id="@+id/et_patient_date"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
-                    android:layout_marginLeft="270dp"
+                    android:layout_marginLeft="260dp"
                     android:layout_marginTop="40dp"
                     android:paddingBottom="5dp"
                     android:hint="2021-1-29"
@@ -164,7 +164,7 @@
                     android:layout_marginTop="50dp"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="20dp"
-                    android:text="等死吧！告辞"
+                    android:text="无碍"
                     android:textSize="16sp"/>
 
                 <TextView

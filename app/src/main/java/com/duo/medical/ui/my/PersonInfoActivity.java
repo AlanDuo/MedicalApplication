@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.duo.medical.LoginActivity;
 import com.duo.medical.MainActivity;
 import com.duo.medical.R;
 import com.duo.medical.common.GlideRoundTransform;
@@ -41,6 +43,14 @@ public class PersonInfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(PersonInfoActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        Button btLogout=findViewById(R.id.bt_logout);
+        btLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(PersonInfoActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

@@ -83,7 +83,7 @@ public class ConsultationActivity extends AppCompatActivity {
         Intent intent=getIntent();
         toUser=intent.getStringExtra("userId");
 
-        URI serverURI = URI.create("ws://10.34.118.89:9020/consultation/websocket/"+ MyFragment.userId);
+        URI serverURI = URI.create("ws://192.168.43.50:9020/consultation/websocket/"+ MyFragment.userId);
         webSocketClient = new WebSocketClient(serverURI) {
             @Override
             public void onOpen(ServerHandshake handshakedata) {
@@ -163,7 +163,7 @@ public class ConsultationActivity extends AppCompatActivity {
 class TestData{
     public static ArrayList<ChatItemModel> getTestAdData() {
         ArrayList<ChatItemModel> models = new ArrayList<>();
-        ChatModel model = new ChatModel();
+       /* ChatModel model = new ChatModel();
         model.setContent("你好？请问你身体有什么问题？");
         model.setIcon("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F13%2F20200713091444_ljjlq.thumb.400_0.webp&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618239776&t=778fdfbdc3a6cf6dc855b0591c29bc8d");
         models.add(new ChatItemModel(ChatItemModel.CHAT_A, model));
@@ -186,7 +186,7 @@ class TestData{
         ChatModel model6 = new ChatModel();
         model6.setContent("测了，不高，我是不是的了绝症");
         model6.setIcon("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F202007%2F13%2F20200713091444_ljjlq.thumb.400_0.webp&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1618239776&t=778fdfbdc3a6cf6dc855b0591c29bc8d");
-        models.add(new ChatItemModel(ChatItemModel.CHAT_B, model6));
+        models.add(new ChatItemModel(ChatItemModel.CHAT_B, model6));*/
         return models;
     }
 }

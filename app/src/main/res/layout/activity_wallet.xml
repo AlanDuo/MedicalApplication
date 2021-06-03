@@ -29,6 +29,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginLeft="35dp"/>
         <TextView
+            android:id="@+id/tv_bill_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="账单"
@@ -63,7 +64,7 @@
                     android:textColor="@color/colorPrimaryWhite"
                     android:textSize="20dp"/>
                 <TextView
-                    android:id="@+id/tv_wallet_bill"
+                    android:id="@+id/tv_wallet_charge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"

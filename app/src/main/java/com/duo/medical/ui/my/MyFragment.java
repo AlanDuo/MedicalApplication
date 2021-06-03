@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
@@ -125,6 +126,7 @@ public class MyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(),WalletActivity.class);
+                intent.putExtra("userId",userId);
                 startActivity(intent);
             }
         });
@@ -134,6 +136,7 @@ public class MyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(),PrescriptionActivity.class);
+                intent.putExtra("userId",userId);
                 startActivity(intent);
             }
         });
@@ -156,6 +159,7 @@ public class MyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(),FeedBackActivity.class);
+                intent.putExtra("userId",userId);
                 startActivity(intent);
             }
         });
@@ -165,6 +169,7 @@ public class MyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(),WaitToPayActivity.class);
+                intent.putExtra("userId",userId);
                 startActivity(intent);
             }
         });
@@ -194,6 +199,16 @@ public class MyFragment extends Fragment {
                 Intent intent=new Intent(getActivity(),OrderActivity.class);
 
                 startActivity(intent);
+            }
+        });
+        ImageView ivCustomerService=view.findViewById(R.id.iv_customer_service);
+        ivCustomerService.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog alertDialog=new AlertDialog.Builder(getActivity())
+                        .setMessage("拨打电话18178589543联系客服！")
+                        .create();
+                alertDialog.show();
             }
         });
         return view;

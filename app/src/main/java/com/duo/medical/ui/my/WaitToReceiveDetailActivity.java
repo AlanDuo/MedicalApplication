@@ -165,7 +165,7 @@ public class WaitToReceiveDetailActivity extends AppCompatActivity {
                 String sureReceiveUrl="user/order/change_status";
                 RequestBody  body=new FormBody.Builder()
                         .add("orderId",orderId)
-                        .add("status","2")
+                        .add("status","4")
                         .build();
                 NetClient.getNetClient().callNet(sureReceiveUrl, "PUT", body, new NetClient.MyCallBack() {
                     @Override

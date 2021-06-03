@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -33,6 +34,7 @@ public class ConsultationFragment extends Fragment {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
+                    doctorListView.removeAllViewsInLayout();
                     DoctorListAdapter doctorListAdapter=new DoctorListAdapter(getContext(),R.layout.item_doctor_intro,doctorList);
                     doctorListView.setAdapter(doctorListAdapter);
                     break;
@@ -46,13 +48,63 @@ public class ConsultationFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_consultation,container,false);
 
         doctorListView=view.findViewById(R.id.lv_doctor_re_list);
-        doctorListInit();
+        doctorListInit("");
+
+        ImageView ivObstetricsGynecologyDept=view.findViewById(R.id.iv_obstetrics_gynecology_dept);
+        ivObstetricsGynecologyDept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doctorListInit("妇产科");
+            }
+        });
+        ImageView ivEntDept=view.findViewById(R.id.iv_ent_dept);
+        ivEntDept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doctorListInit("五官科");
+            }
+        });
+        ImageView ivGeneralInternalDept=view.findViewById(R.id.iv_general_internal_dept);
+        ivGeneralInternalDept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doctorListInit("普通内科");
+            }
+        });
+        ImageView ivMouthDept=view.findViewById(R.id.iv_mouth_dept);
+        ivMouthDept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doctorListInit("口腔科");
+            }
+        });
+        ImageView ivBreathDept=view.findViewById(R.id.iv_breath_dept);
+        ivBreathDept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doctorListInit("呼吸外科");
+            }
+        });
+        ImageView ivEyeDept=view.findViewById(R.id.iv_eye_dept);
+        ivEyeDept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doctorListInit("眼科");
+            }
+        });
+        ImageView ivLiverDept=view.findViewById(R.id.iv_liver_dept);
+        ivLiverDept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doctorListInit("肝胆内科");
+            }
+        });
         return view;
     }
 
-    public void doctorListInit(){
+    public void doctorListInit(String outpatient){
         doctorList=new ArrayList<>();
-        String doctorListUrl="consultation/consultation/doctorRecommend";
+        String doctorListUrl="consultation/consultation/doctorRecommend?outpatient="+outpatient;
         NetClient.getNetClient().callNet(doctorListUrl, "GET", null, new NetClient.MyCallBack() {
             @Override
             public void onFailure(int code) {
@@ -65,23 +117,24 @@ public class ConsultationFragment extends Fragment {
                 try{
                     JSONObject jsonObject=new JSONObject(json);
                     String data=jsonObject.getString("data");
-                    JSONArray jsonArray=new JSONArray(data);
-                    int len=jsonArray.length();
-                    for(int i=0;i<len;i++){
-                        JSONObject object=jsonArray.getJSONObject(i);
-                        int doctorId=Integer.parseInt(object.getString("doctorId"));
-                        int userId=Integer.parseInt(object.getString("userId"));
-                        String doctorImg=object.getString("userImg");
-                        String doctorName=object.getString("username");
-                        String doctorLevel=object.getString("level");
-                        String doctorCompany=object.getString("hospital")+"·"+object.getString("category");
-                        String doctorGood=object.getString("goodAt");
-                        doctorList.add(new DoctorListMode(userId,doctorId,doctorImg,doctorName,doctorLevel,doctorCompany,doctorGood));
-
-                        Message message=new Message();
-                        message.what=1;
-                        handler.sendMessage(message);
+                    if(null!=data && !"null".equals(data)) {
+                        JSONArray jsonArray = new JSONArray(data);
+                        int len = jsonArray.length();
+                        for (int i = 0; i < len; i++) {
+                            JSONObject object = jsonArray.getJSONObject(i);
+                            int doctorId = Integer.parseInt(object.getString("doctorId"));
+                            int userId = Integer.parseInt(object.getString("userId"));
+                            String doctorImg = object.getString("userImg");
+                            String doctorName = object.getString("username");
+                            String doctorLevel = object.getString("level");
+                            String doctorCompany = object.getString("hospital") + "·" + object.getString("category");
+                            String doctorGood = object.getString("goodAt");
+                            doctorList.add(new DoctorListMode(userId, doctorId, doctorImg, doctorName, doctorLevel, doctorCompany, doctorGood));
+                        }
                     }
+                    Message message = new Message();
+                    message.what = 1;
+                    handler.sendMessage(message);
 
                 }catch(Exception e){
                     e.printStackTrace();
